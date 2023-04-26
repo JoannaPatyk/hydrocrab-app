@@ -1,11 +1,8 @@
-import React from "react";
+import React from 'react';
+import Dashboard from './pages/Dashboard';
 
 function App() {
-  return (
-    <div className="App">
-      <p>Water drinking tracker App</p>
-    </div>
-  );
+    return <Dashboard />;
 }
 
 export default App;
