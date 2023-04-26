@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import links from '../utils/links';
-import waterdrop from '../assets/waterdrop.png';
 
 function Menu() {
     return (
@@ -11,7 +10,7 @@ function Menu() {
                     return (
                         <div className="menu-element" key={id}>
                             <h1>{text}</h1>
-                            <img className="accent-wave" src={waterdrop} alt="wave" />
+                            <div className="line"></div>
                         </div>
                     );
                 })}
@@ -20,42 +19,42 @@ function Menu() {
     );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.nav`
     .menu-container {
-        min-height: 10vh;
+        min-height: 8vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 2rem;
     }
 
     h1 {
         padding: 1rem 2rem;
         font-weight: 400;
-        font-size: 1.8rem;
+        font-size: 2rem;
         letter-spacing: 0.4rem;
         text-transform: uppercase;
-        text-align: center;
-        transition: 0.6s;
-        cursor: pointer;
-    }
-
-    .accent-wave {
-        margin-top: -0.5rem;
-        width: 5rem;
-        visibility: hidden;
-        opacity: 0;
-        transition: 0.6s;
+        transition: 0.3s;
         cursor: pointer;
     }
 
     .menu-element {
         display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: navy;
     }
 
-    .menu-element:hover .accent-wave {
-        visibility: visible;
-        opacity: 1;
+    .line {
+        height: 2px;
+        width: 0;
+        border-radius: 10px;
+        background: linear-gradient(to right, #86a7fe, #fe9586);
+        transition: 0.6s;
+    }
+
+    .menu-element:hover .line {
+        width: 9rem;
     }
 `;
 

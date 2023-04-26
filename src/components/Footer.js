@@ -23,9 +23,10 @@ const Wrapper = styled.div`
         flex-direction: column;
         background-color: navy;
     }
+
     h4 {
+        font-weight: 300;
         line-height: 5vh;
-        letter-spacing: 0.2rem;
     }
 `;
 
