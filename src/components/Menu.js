@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import links from '../utils/links';
 
@@ -6,12 +7,12 @@ function Menu() {
     return (
         <Wrapper>
             <nav className="menu-container">
-                {links.map(({ id, text }) => {
+                {links.map(({ id, path, text }) => {
                     return (
-                        <div className="menu-element" key={id}>
+                        <NavLink to={path} className="menu-element" key={id}>
                             <h1>{text}</h1>
                             <div className="line"></div>
-                        </div>
+                        </NavLink>
                     );
                 })}
             </nav>
@@ -43,6 +44,7 @@ const Wrapper = styled.nav`
         align-items: center;
         flex-direction: column;
         color: navy;
+        text-decoration: none;
     }
 
     .line {
