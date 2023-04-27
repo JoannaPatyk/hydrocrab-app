@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Menu from '../components/Menu';
+import BigCup from '../components/BigCup';
 import Footer from '../components/Footer';
 import background from '../assets/waves.png';
 import crab from '../assets/crab.png';
+import SmallCup from '../components/SmallCup';
 
 function Dashboard() {
+    const [liter, setLiter] = useState(2);
+
     return (
         <Wrapper>
             <div className="dashboard-container">
@@ -14,8 +18,13 @@ function Dashboard() {
                     <h1 className="title">HydroCrab</h1>
                     <img className="title-img" src={crab} alt="crab" />
                 </div>
+                <Menu />
                 <div className="main-container">
-                    <Menu />
+                    <h1 className="target">CEL: {liter}L</h1>
+                    <div className="cup-container">
+                        <BigCup />
+                        <SmallCup />
+                    </div>
                 </div>
                 <Footer />
             </div>
@@ -58,13 +67,36 @@ const Wrapper = styled.div`
     }
 
     .main-container {
-        height: 80vh;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .cup-container {
+        height: 60vh;
+        width: 60vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: -2.5rem auto 0;
+    }
+
+    .target {
+        width: 20%;
+        font-size: 3rem;
+        font-weight: 200;
+        padding: 2rem;
+        /* border: 1px solid #f5f5f5;
+        border-radius: 50px; */
     }
 
     .bg-img {
+        width: 80%;
         position: absolute;
         top: 0;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: -100;
         opacity: 0.1;
     }

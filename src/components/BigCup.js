@@ -13,20 +13,20 @@ function BigCup() {
 
 const Wrapper = styled.div`
     .big-cup-container {
-        height: 75vh;
-        width: 30vw;
+        height: 100%;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: 15rem;
     }
 
     .big-cup {
-        height: 50%;
+        height: 70%;
         width: 35%;
         border: 6px solid navy;
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 80px;
+        border-bottom-right-radius: 80px;
+        background-color: #f5f5f5;
     }
 `;
 
