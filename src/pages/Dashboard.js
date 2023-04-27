@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Menu from '../components/Menu';
 import BigCup from '../components/BigCup';
 import Footer from '../components/Footer';
@@ -7,9 +8,7 @@ import background from '../assets/waves.png';
 import crab from '../assets/crab.png';
 import SmallCup from '../components/SmallCup';
 
-function Dashboard() {
-    const [liter, setLiter] = useState(2);
-
+function Dashboard({ liter }) {
     return (
         <Wrapper>
             <div className="dashboard-container">
@@ -54,7 +53,7 @@ const Wrapper = styled.div`
         margin: 0.5rem;
         height: 10vh;
         line-height: 10vh;
-        color: #fe9586;
+        color: #f37151;
         font-size: 5.5rem;
         font-weight: 500;
         text-shadow: 5px 5px 2px #331e1b;
@@ -87,12 +86,10 @@ const Wrapper = styled.div`
         font-size: 3rem;
         font-weight: 200;
         padding: 2rem;
-        /* border: 1px solid #f5f5f5;
-        border-radius: 50px; */
     }
 
     .bg-img {
-        width: 80%;
+        width: 100%;
         position: absolute;
         top: 0;
         left: 50%;
@@ -101,5 +98,9 @@ const Wrapper = styled.div`
         opacity: 0.1;
     }
 `;
+
+Dashboard.propTypes = {
+    liter: PropTypes.number.isRequired
+};
 
 export default Dashboard;

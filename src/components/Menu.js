@@ -31,7 +31,7 @@ const Wrapper = styled.nav`
     h1 {
         padding: 1rem 2rem;
         font-weight: 400;
-        font-size: 2rem;
+        font-size: 1.5rem;
         letter-spacing: 0.4rem;
         text-transform: uppercase;
         transition: 0.3s;
@@ -43,7 +43,7 @@ const Wrapper = styled.nav`
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        color: navy;
+        color: #2b2c32;
         text-decoration: none;
     }
 
@@ -51,12 +51,12 @@ const Wrapper = styled.nav`
         height: 2px;
         width: 0;
         border-radius: 10px;
-        background: linear-gradient(to right, #86a7fe, #fe9586);
+        background: linear-gradient(to right, #86a7fe, #f37151);
         transition: 0.6s;
     }
 
     .menu-element:hover .line {
-        width: 9rem;
+        width: 10rem;
     }
 `;
 

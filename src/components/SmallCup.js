@@ -30,7 +30,8 @@ const Wrapper = styled.div`
         height: 15%;
         width: 10%;
         margin: 0.5rem;
-        border: 6px solid navy;
+        border: 2px solid #2b2c32;
+        box-shadow: 1px 1px 10px #2b2c32;
         border-bottom-left-radius: 30px;
         border-bottom-right-radius: 30px;
         background-color: #f5f5f5;
