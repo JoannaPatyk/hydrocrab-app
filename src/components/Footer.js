@@ -21,7 +21,7 @@ const Wrapper = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background-color: navy;
+        background-color: #2b2c32;
     }
 
     h4 {
