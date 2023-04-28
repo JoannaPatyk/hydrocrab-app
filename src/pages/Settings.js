@@ -8,6 +8,20 @@ import Menu from '../components/Menu';
 import { Link } from 'react-router-dom';
 import { BsArrow90DegLeft } from 'react-icons/bs';
 import Footer from '../components/Footer';
+import FormSelect from '../components/FormSelect';
+import FormInput from '../components/FormInput';
+
+const genderOptions = [
+    { value: 'kobieta', label: 'kobieta' },
+    { value: 'mężczyzna', label: 'mężczyzna' }
+];
+
+const activityOptions = [
+    { value: 'mała', label: 'mała' },
+    { value: 'średnia', label: 'średnia' },
+    { value: 'duża', label: 'duża' }
+];
+
 function Settings({ liter, setLiter }) {
     const [weight, setWeight] = useState('');
     const [gender, setGender] = useState('');
@@ -20,21 +34,26 @@ function Settings({ liter, setLiter }) {
 
     const handleLiterAmountChange2 = () => {
         setLiter(weight * 30);
-        console.log(liter);
     };
 
     const handleWeightChange = (event) => {
         const value = event.target.value;
         setWeight(value);
-        console.log(weight);
     };
 
     useEffect(() => {
         handleLiterAmountChange2();
+        // eslint-disable-next-line
     }, [weight]);
 
-    const handleSubmit = () => {};
-    const handleSubmit2 = () => {};
+    const handleGender = (selected) => {
+        setGender(selected.value);
+    };
+
+    const handleActivity = (selected) => {
+        const value = selected.value;
+        seActivity(value);
+    };
 
     return (
         <Wrapper>
@@ -48,43 +67,49 @@ function Settings({ liter, setLiter }) {
                 <h2>Ile wody chcesz wypić?</h2>
 
                 <h3>Podaj sam ilość wody</h3>
-                <h4>
-                    <input type="number" value={liter} onChange={handleLiterAmountChange} />
-                    ml
-                </h4>
-
+                <FormInput
+                    id="literInput"
+                    value={liter}
+                    type="number"
+                    placeholder="podaj ilość wody..."
+                    min={0}
+                    text={'L'}
+                    onChange={handleLiterAmountChange}
+                />
                 <h3>lub oblicz ilość wody do wypicia</h3>
-                <form method="post" onSubmit={handleSubmit}>
-                    <label>
-                        Płeć:
-                        <select name="selectedGender" defaultValue="-">
-                            <option value="other">-</option>
-                            <option value="woman">Kobieta</option>
-                            <option value="man">Mężczyzna</option>
-                        </select>
-                    </label>
-                </form>
-                <label>
-                    Waga:
-                    <input type="number" value={weight} onChange={handleWeightChange} />
-                    kg
-                </label>
-                <form method="post" onSubmit={handleSubmit2}>
-                    <label>
-                        Aktywność:
-                        <select name="selectedActivity" defaultValue={activity}>
-                            <option value="small">Mała</option>
-                            <option value="medium">Średnia</option>
-                            <option value="big">Duża</option>
-                        </select>
-                    </label>
-                </form>
-
+                <FormInput
+                    id="weightInput"
+                    value={weight}
+                    type="number"
+                    placeholder="podaj wagę"
+                    min={0}
+                    text={'kg'}
+                    onChange={handleWeightChange}
+                />
+                <FormSelect
+                    placeholder={'wybierz płeć...'}
+                    options={genderOptions}
+                    value={{ value: gender, label: gender }}
+                    text={'Płeć:'}
+                    onChange={handleGender}
+                />
+                <FormSelect
+                    placeholder={'poziom aktywności...'}
+                    options={activityOptions}
+                    value={{ value: activity, label: activity }}
+                    text={'Aktywność:'}
+                    onChange={handleActivity}
+                />
                 <h3>sugerowana ilość wody to</h3>
-                <h4>
-                    <input type="number" value={liter} onChange={handleLiterAmountChange2} />
-                    ml
-                </h4>
+                <FormInput
+                    id="literInput"
+                    value={liter}
+                    type="number"
+                    placeholder={'ilość wody'}
+                    min={0}
+                    text={'L'}
+                    onChange={handleLiterAmountChange2}
+                />
 
                 <img className="settings-img" src={coral} alt="coral" />
             </div>
