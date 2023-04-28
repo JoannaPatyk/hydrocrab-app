@@ -3,10 +3,18 @@ import PropTypes from 'prop-types';
 
 function FormInput({ id, type, name, value, text, onChange, placeholder }) {
     return (
-        <>
-            <input id={id} type={type} value={value} name={name} onChange={onChange} placeholder={placeholder} />
+        <div className="form-container">
+            <input
+                id={id}
+                type={type}
+                value={value}
+                className="form-input"
+                name={name}
+                onChange={onChange}
+                placeholder={placeholder}
+            />
             <h4>{text}</h4>
-        </>
+        </div>
     );
 }
 

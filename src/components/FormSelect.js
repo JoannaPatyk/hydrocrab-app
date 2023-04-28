@@ -6,7 +6,14 @@ const FormSelect = ({ value, options, text, placeholder, onChange }) => {
     return (
         <div className="select-container">
             <h4>{text}</h4>
-            <Select myFontSize="16px" onChange={onChange} options={options} placeholder={placeholder} value={value} />
+            <Select
+                myFontSize="16px"
+                className="form-select"
+                onChange={onChange}
+                options={options}
+                placeholder={placeholder}
+                value={value}
+            />
         </div>
     );
 };

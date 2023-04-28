@@ -12,16 +12,17 @@ import FormSelect from '../components/FormSelect';
 import FormInput from '../components/FormInput';
 
 const genderOptions = [
+    { value: '-', label: '-' },
     { value: 'kobieta', label: 'kobieta' },
     { value: 'mężczyzna', label: 'mężczyzna' }
 ];
 
 const activityOptions = [
+    { value: '-', label: '-' },
     { value: 'mała', label: 'mała' },
     { value: 'średnia', label: 'średnia' },
     { value: 'duża', label: 'duża' }
 ];
-
 function Settings({ liter, setLiter }) {
     const [weight, setWeight] = useState('');
     const [gender, setGender] = useState('');
@@ -33,7 +34,7 @@ function Settings({ liter, setLiter }) {
     };
 
     const handleLiterAmountChange2 = () => {
-        setLiter(weight * 30);
+        setLiter((weight * 30) / 1000);
     };
 
     const handleWeightChange = (event) => {
@@ -66,51 +67,44 @@ function Settings({ liter, setLiter }) {
                 <img className="wave-img" src={wave} alt="" />
                 <h2>Ile wody chcesz wypić?</h2>
 
-                <h3>Podaj sam ilość wody</h3>
-                <FormInput
-                    id="literInput"
-                    value={liter}
-                    type="number"
-                    placeholder="podaj ilość wody..."
-                    min={0}
-                    text={'L'}
-                    onChange={handleLiterAmountChange}
-                />
-                <h3>lub oblicz ilość wody do wypicia</h3>
-                <FormInput
-                    id="weightInput"
-                    value={weight}
-                    type="number"
-                    placeholder="podaj wagę"
-                    min={0}
-                    text={'kg'}
-                    onChange={handleWeightChange}
-                />
-                <FormSelect
-                    placeholder={'wybierz płeć...'}
-                    options={genderOptions}
-                    value={{ value: gender, label: gender }}
-                    text={'Płeć:'}
-                    onChange={handleGender}
-                />
-                <FormSelect
-                    placeholder={'poziom aktywności...'}
-                    options={activityOptions}
-                    value={{ value: activity, label: activity }}
-                    text={'Aktywność:'}
-                    onChange={handleActivity}
-                />
-                <h3>sugerowana ilość wody to</h3>
-                <FormInput
-                    id="literInput"
-                    value={liter}
-                    type="number"
-                    placeholder={'ilość wody'}
-                    min={0}
-                    text={'L'}
-                    onChange={handleLiterAmountChange2}
-                />
-
+                <div className="questions">
+                    <h3>Podaj sam ilość wody</h3>
+                    <FormInput
+                        id="literInput"
+                        value={liter}
+                        type="number"
+                        text={'ml'}
+                        onChange={handleLiterAmountChange}
+                    />
+                    <h3>lub oblicz ilość wody do wypicia</h3>
+                    <FormInput
+                        id="weightInput"
+                        value={weight}
+                        type="number"
+                        text={'kg'}
+                        onChange={handleWeightChange}
+                    />
+                    <FormSelect
+                        options={genderOptions}
+                        value={{ value: gender, label: gender }}
+                        text={'Płeć:'}
+                        onChange={handleGender}
+                    />
+                    <FormSelect
+                        options={activityOptions}
+                        value={{ value: activity, label: activity }}
+                        text={'Aktywność:'}
+                        onChange={handleActivity}
+                    />
+                    <h3>sugerowana ilość wody to</h3>
+                    <FormInput
+                        id="literInput"
+                        value={liter}
+                        type="number"
+                        text={'ml'}
+                        onChange={handleLiterAmountChange2}
+                    />
+                </div>
                 <img className="settings-img" src={coral} alt="coral" />
             </div>
             <Footer />
@@ -132,8 +126,8 @@ const Wrapper = styled.div`
         overflow: hidden;
     }
 
-    .menu-container {
-        margin-top: 1rem;
+    .questions {
+        padding-left: 6rem;
     }
 
     .back-icon {
@@ -150,34 +144,20 @@ const Wrapper = styled.div`
 
     h2,
     h3 {
-        margin: 1rem;
+        margin: 1rem 0;
         font-weight: 300;
     }
 
     h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     h4 {
         font-weight: 300;
-    }
-
-    input,
-    select {
-        border: none;
-        border-bottom: 1px solid #ccc;
-        font-size: 1.1rem;
-        font-family: inherit;
-        font-weight: 500;
-        text-align: center;
-        color: inherit;
-        padding: 5px 10px;
-        width: 8rem;
-        background-color: transparent;
     }
 
     input::-webkit-outer-spin-button,
@@ -191,8 +171,45 @@ const Wrapper = styled.div`
         font-size: 1.1rem;
     }
 
+    .form-container {
+        display: flex;
+        align-items: center;
+        h4 {
+            font-weight: 400;
+            padding-left: 0.5rem;
+            text-align: start;
+        }
+    }
+
+    .select-container {
+        width: 30%;
+        h4 {
+            text-align: start;
+            padding-right: 0.5rem;
+        }
+    }
+
+    .form-input {
+        width: 12rem;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        font-size: 1.1rem;
+        font-family: inherit;
+        font-weight: 500;
+        color: inherit;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .form-select {
+        width: 16rem;
+        padding: 0.5rem 0;
+    }
+
     .background-img {
-        height: 85%;
+        height: 90%;
         position: absolute;
         top: 50%;
         left: 50%;

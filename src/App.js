@@ -6,7 +6,7 @@ import Facts from './pages/Facts';
 import About from './pages/About';
 
 function App() {
-    const [liter, setLiter] = useState(2);
+    const [liter, setLiter] = useState(0);
 
     return (
         <BrowserRouter>
