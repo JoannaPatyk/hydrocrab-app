@@ -1,6 +1,6 @@
-# Hydrocrab 💧
+# Hydrodrop 💧
 
-**Hydrocrab** is a simple application that allows users to track the amount of water they drink throughout the day.
+**Hydrodrop** is a simple application that allows users to track the amount of water they drink throughout the day.
 
 After starting the app, you will see the main window with glasses of water. In the future, the user will be able to click on individual glasses to record the amount of water drunk, which will fill up a large glass. This is a feature that I plan to add in the future.
 
@@ -20,9 +20,9 @@ The application was built using the following technologies:
 
 ## Installation
 
-To install **Hydrocrab**, follow these steps:
+To install **Hydrodrop**, follow these steps:
 
--   Clone the hydrocrab-app repository to your computer.
--   Open a terminal and navigate to the hydrocrab-app directory.
+-   Clone the hydrodrop-app repository to your computer.
+-   Open a terminal and navigate to the hydrodrop-app directory.
 -   Install dependencies by running `npm install`.
 -   Start the app by running `npm start`.
