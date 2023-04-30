@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import coral from '../assets/coral.png';
-import drop from '../assets/water-drop.png';
-import wave from '../assets/waves.png';
 import Menu from '../components/Menu';
 import { Link } from 'react-router-dom';
 import { BsArrow90DegLeft } from 'react-icons/bs';
 import Footer from '../components/Footer';
 import FormSelect from '../components/FormSelect';
 import FormInput from '../components/FormInput';
+import { useWaterContext } from '../context/WaterContext';
 
 const genderOptions = [
     { value: '-', label: '-' },
@@ -23,18 +20,20 @@ const activityOptions = [
     { value: 'średnia', label: 'średnia' },
     { value: 'duża', label: 'duża' }
 ];
-function Settings({ liter, setLiter }) {
+function Settings() {
+    const { literAmount, setLiterAmount } = useWaterContext();
+
     const [weight, setWeight] = useState('');
     const [gender, setGender] = useState('');
     const [activity, seActivity] = useState('');
 
     const handleLiterAmountChange = (event) => {
         const value = event.target.value;
-        setLiter(value);
+        setLiterAmount(value);
     };
 
     const handleLiterAmountChange2 = () => {
-        setLiter((weight * 30) / 1000);
+        setLiterAmount((weight * 30) / 1000);
     };
 
     const handleWeightChange = (event) => {
@@ -63,15 +62,12 @@ function Settings({ liter, setLiter }) {
                 <BsArrow90DegLeft />
             </Link>
             <div className="settings-container">
-                <img className="background-img" src={drop} alt="" />
-                <img className="wave-img" src={wave} alt="" />
                 <h2>Ile wody chcesz wypić?</h2>
-
                 <div className="questions">
                     <h3>Podaj sam ilość wody</h3>
                     <FormInput
                         id="literInput"
-                        value={liter}
+                        value={literAmount}
                         type="number"
                         text={'ml'}
                         onChange={handleLiterAmountChange}
@@ -99,13 +95,12 @@ function Settings({ liter, setLiter }) {
                     <h3>sugerowana ilość wody to</h3>
                     <FormInput
                         id="literInput"
-                        value={liter}
+                        value={literAmount}
                         type="number"
                         text={'ml'}
                         onChange={handleLiterAmountChange2}
                     />
                 </div>
-                <img className="settings-img" src={coral} alt="coral" />
             </div>
             <Footer />
         </Wrapper>
@@ -237,9 +232,5 @@ const Wrapper = styled.div`
         opacity: 0.9;
     }
 `;
-Settings.propTypes = {
-    liter: PropTypes.number,
-    setLiter: PropTypes.func
-};
 
 export default Settings;

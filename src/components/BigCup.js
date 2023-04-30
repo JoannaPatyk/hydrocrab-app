@@ -21,8 +21,8 @@ const Wrapper = styled.div`
     }
 
     .big-cup {
-        height: 70%;
-        width: 35%;
+        height: 25rem;
+        width: 12rem;
         border: 2px solid #2b2c32;
         box-shadow: 1px 1px 10px #2b2c32;
         border-bottom-left-radius: 80px;
