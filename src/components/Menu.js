@@ -51,7 +51,7 @@ const Wrapper = styled.nav`
         height: 2px;
         width: 0;
         border-radius: 10px;
-        background: linear-gradient(to right, #86a7fe, #f37151);
+        background: linear-gradient(to right, #3771c8, #f37151);
         transition: 0.6s;
     }
 
