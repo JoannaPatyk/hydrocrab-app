@@ -5,15 +5,12 @@ const WaterContext = createContext();
 
 export const WaterProvider = ({ children }) => {
     const [literAmount, setLiterAmount] = useState(3000);
-    const [count, setCount] = useState(6);
 
     return (
         <WaterContext.Provider
             value={{
                 literAmount,
-                count,
-                setLiterAmount,
-                setCount
+                setLiterAmount
             }}
         >
             {children}

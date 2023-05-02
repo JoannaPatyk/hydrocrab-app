@@ -33,7 +33,7 @@ function Settings() {
     };
 
     const handleLiterAmountChange2 = () => {
-        setLiterAmount((weight * 30) / 1000);
+        setLiterAmount(weight * 30);
     };
 
     const handleWeightChange = (event) => {
@@ -57,7 +57,6 @@ function Settings() {
 
     return (
         <Wrapper>
-            <Menu />
             <Link to="/" className="back-icon">
                 <BsArrow90DegLeft />
             </Link>
@@ -110,13 +109,13 @@ function Settings() {
 const Wrapper = styled.div`
     .settings-container {
         position: relative;
-        height: 90vh;
+        height: 78vh;
         width: 100vw;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        margin: -1rem auto 0;
+        padding: 0 auto;
         color: #2b2c32;
         overflow: hidden;
     }

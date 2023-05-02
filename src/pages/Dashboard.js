@@ -1,52 +1,71 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Menu from '../components/Menu';
 import BigCup from '../components/BigCup';
-import Footer from '../components/Footer';
-import water from '../assets/water.png';
 import SmallCup from '../components/SmallCup';
+import Footer from '../components/Footer';
+
 import { useWaterContext } from '../context/WaterContext';
 
 function Dashboard() {
-    const { literAmount, count, setCount } = useWaterContext();
-    const [activeCupIndex, setActiveCupIndex] = useState(null);
+    const { literAmount } = useWaterContext();
+    const [bigCupActiveHeight, setBigCupActiveHeight] = useState(0);
+    const [partSmallCup, setPartSmallCup] = useState(0);
+    const [partMediumCup, setPartMediumCup] = useState(0);
+    const [partLargeCup, setPartLargeCup] = useState(0);
+
+    const MAX_CUP_HEIGHT = 330;
+    const CUP_HEIGHT_INCREMENT = 350;
 
     useEffect(() => {
-        setCount(literAmount / 250);
-        // eslint-disable-next-line
+        setPartSmallCup(literAmount / 250);
+        setPartMediumCup(literAmount / 500);
+        setPartLargeCup(literAmount / 1000);
     }, [literAmount]);
 
-    const handleSmallCup = (index) => {
-        setActiveCupIndex(index);
+    const handleCup = (partCup) => {
+        if (bigCupActiveHeight < MAX_CUP_HEIGHT) {
+            setBigCupActiveHeight(bigCupActiveHeight + CUP_HEIGHT_INCREMENT / partCup);
+        }
+    };
+
+    const handleSmallCup = () => {
+        handleCup(partSmallCup);
+    };
+
+    const handleMediumCup = () => {
+        handleCup(partMediumCup);
+    };
+
+    const handleLargeCup = () => {
+        handleCup(partLargeCup);
+    };
+
+    const handleCleanUp = () => {
+        setBigCupActiveHeight(0);
     };
 
     return (
         <Wrapper>
             <div className="dashboard-container">
-                <div className="title-container">
-                    <h1 className="title">HYDRO</h1>
-                    <img className="title-img" src={water} alt="crab" />
-                    <h1 className="title">DROP</h1>
-                </div>
-                <Menu />
                 <div className="main-container">
-                    <h1 className="target">CEL: {literAmount} ml</h1>
+                    <h1 className="target">Cel: {literAmount} ml</h1>
                     <div className="cup-container">
                         <div className="big-cup-container">
-                            <BigCup />
+                            <BigCup bigCupActiveHeight={bigCupActiveHeight} />
+                            <button className="btn" onClick={handleCleanUp}>
+                                wyczyść
+                            </button>
                         </div>
                         <div className="small-cup-container">
-                            {(() => {
-                                const cups = [];
-                                for (let index = 0; index < count; index++) {
-                                    cups.push(
-                                        <button className="btn-cup" key={index} onClick={() => handleSmallCup(index)}>
-                                            <SmallCup activeCupIndex={activeCupIndex} index={index} />
-                                        </button>
-                                    );
-                                }
-                                return cups;
-                            })()}
+                            <button onClick={handleSmallCup}>
+                                <SmallCup height={'6rem'} text={'250 ml'} />
+                            </button>
+                            <button onClick={handleMediumCup}>
+                                <SmallCup height={'8rem'} text={'500 ml'} />
+                            </button>
+                            <button onClick={handleLargeCup}>
+                                <SmallCup height={'10rem'} text={'1000 ml'} />
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -59,33 +78,10 @@ function Dashboard() {
 const Wrapper = styled.div`
     .dashboard-container {
         position: relative;
-        min-height: 100vh;
+        min-height: 78vh;
         width: 100vw;
         overflow: hidden;
         text-align: center;
-    }
-
-    .title-container {
-        height: 100%;
-        width: 30%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 2rem auto 1rem;
-    }
-
-    .title {
-        margin: 0.5rem;
-        height: 10vh;
-        line-height: 10vh;
-        color: #3771c8;
-        font-size: 5rem;
-        font-weight: 200;
-        text-shadow: 5px 5px 2px #001d43;
-    }
-
-    .title-img {
-        height: 9rem;
     }
 
     .main-container {
@@ -107,33 +103,45 @@ const Wrapper = styled.div`
 
     .small-cup-container {
         height: 70%;
-        width: 100%;
+        width: 150%;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
     }
 
-    .big-cup-container {
-        height: 80%;
-        width: 100%;
+    .small-cup-container button {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 9rem;
+        height: 9rem;
+        background-color: transparent;
+        border: none;
     }
 
     .target {
         width: 20%;
         font-size: 2.5rem;
         font-weight: 300;
-        color: #f37151;
-        padding: 2rem;
+        padding: 1rem;
+        border: 2px solid whitesmoke;
     }
 
-    .btn-cup {
-        margin: 0.2rem;
-        border: none;
-        background-color: transparent;
+    .big-cup-container {
+        height: 100%;
+        width: 100%;
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 14rem;
+        font-size: 1.2rem;
+        letter-spacing: 0.2rem;
     }
 
     .bg-img {

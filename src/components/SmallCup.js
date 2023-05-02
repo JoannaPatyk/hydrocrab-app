@@ -1,35 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { MdWaterDrop } from 'react-icons/md';
 
-function SmallCup({ activeCupIndex, index }) {
+function SmallCup({ height, text }) {
     return (
         <Wrapper>
-            <div className={activeCupIndex >= index ? 'small-cup active' : 'small-cup'}></div>
+            <div className="small-cup">
+                <MdWaterDrop className="icon" style={{ fontSize: height }} />
+                <p>{text}</p>
+            </div>
         </Wrapper>
     );
 }
 
 SmallCup.propTypes = {
-    activeCupIndex: PropTypes.number,
-    index: PropTypes.number
+    height: PropTypes.string,
+    text: PropTypes.string
 };
 
 const Wrapper = styled.div`
     .small-cup {
         position: relative;
-        height: 5rem;
-        width: 3rem;
-        margin: 0.5rem;
-        border: 2px solid #2b2c32;
-        box-shadow: 2px 3px 5px #2b2c32;
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 30px;
-        background-color: #f5f5f5;
-    }
-
-    .active {
-        background-color: #7293ee;
+        width: 4rem;
     }
 
     .small-cup:hover {
@@ -39,15 +32,27 @@ const Wrapper = styled.div`
     p {
         color: black;
         text-align: center;
-        line-height: 35px;
+        font-size: 1rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
     }
 
-    img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 50%;
+    .icon {
+        animation: dropMove 2s infinite linear;
+    }
+
+    @keyframes dropMove {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(0.95);
+        }
+
+        100% {
+            transform: scale(1);
+        }
     }
 `;
 
