@@ -9,7 +9,7 @@ function Landing() {
         <Wrapper>
             <div className="main-container">
                 <div className="left-side">
-                    <img className="bg" src={background} alt="" />
+                    <img className="bg" src={background} alt="Water" />
                 </div>
                 <div className="right-side">
                     <div className="icon-container">
