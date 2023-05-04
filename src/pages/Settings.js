@@ -1,28 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import Menu from '../components/Menu';
 import { Link } from 'react-router-dom';
-import { BsArrow90DegLeft } from 'react-icons/bs';
+import styled from 'styled-components';
 import Footer from '../components/Footer';
 import FormSelect from '../components/FormSelect';
 import FormInput from '../components/FormInput';
+import { BsArrow90DegLeft } from 'react-icons/bs';
 import { useWaterContext } from '../context/WaterContext';
+import genderOptions from '../utils/gender';
+import activityOptions from '../utils/activity';
 
-const genderOptions = [
-    { value: '-', label: '-' },
-    { value: 'kobieta', label: 'kobieta' },
-    { value: 'mężczyzna', label: 'mężczyzna' }
-];
-
-const activityOptions = [
-    { value: '-', label: '-' },
-    { value: 'mała', label: 'mała' },
-    { value: 'średnia', label: 'średnia' },
-    { value: 'duża', label: 'duża' }
-];
 function Settings() {
     const { literAmount, setLiterAmount } = useWaterContext();
-
     const [weight, setWeight] = useState('');
     const [gender, setGender] = useState('');
     const [activity, seActivity] = useState('');
@@ -32,8 +20,24 @@ function Settings() {
         setLiterAmount(value);
     };
 
-    const handleLiterAmountChange2 = () => {
-        setLiterAmount(weight * 30);
+    const handleLiterAmountChangeMyself = () => {
+        let baseAmount = weight * 30;
+
+        if (gender === 'kobieta') {
+            baseAmount += 100;
+        } else if (gender === 'mężczyzna') {
+            baseAmount += 200;
+        }
+
+        if (activity === 'mała') {
+            baseAmount += 50;
+        } else if (activity === 'średnia') {
+            baseAmount += 200;
+        } else if (activity === 'duża') {
+            baseAmount += 300;
+        }
+
+        setLiterAmount(baseAmount);
     };
 
     const handleWeightChange = (event) => {
@@ -42,12 +46,19 @@ function Settings() {
     };
 
     useEffect(() => {
-        handleLiterAmountChange2();
+        const timeout = setTimeout(() => {
+            handleLiterAmountChangeMyself();
+        }, 1000);
+
+        return () => {
+            clearTimeout(timeout);
+        };
         // eslint-disable-next-line
-    }, [weight]);
+    }, [weight, gender, activity]);
 
     const handleGender = (selected) => {
-        setGender(selected.value);
+        const value = selected.value;
+        setGender(value);
     };
 
     const handleActivity = (selected) => {
@@ -57,48 +68,57 @@ function Settings() {
 
     return (
         <Wrapper>
-            <Link to="/" className="back-icon">
+            <Link to="/dashboard" className="back-icon">
                 <BsArrow90DegLeft />
             </Link>
             <div className="settings-container">
-                <h2>Ile wody chcesz wypić?</h2>
-                <div className="questions">
-                    <h3>Podaj sam ilość wody</h3>
-                    <FormInput
-                        id="literInput"
-                        value={literAmount}
-                        type="number"
-                        text={'ml'}
-                        onChange={handleLiterAmountChange}
-                    />
-                    <h3>lub oblicz ilość wody do wypicia</h3>
-                    <FormInput
-                        id="weightInput"
-                        value={weight}
-                        type="number"
-                        text={'kg'}
-                        onChange={handleWeightChange}
-                    />
-                    <FormSelect
-                        options={genderOptions}
-                        value={{ value: gender, label: gender }}
-                        text={'Płeć:'}
-                        onChange={handleGender}
-                    />
-                    <FormSelect
-                        options={activityOptions}
-                        value={{ value: activity, label: activity }}
-                        text={'Aktywność:'}
-                        onChange={handleActivity}
-                    />
-                    <h3>sugerowana ilość wody to</h3>
-                    <FormInput
-                        id="literInput"
-                        value={literAmount}
-                        type="number"
-                        text={'ml'}
-                        onChange={handleLiterAmountChange2}
-                    />
+                <div className="choice-container">
+                    <h3>Oblicz, ile wody powinieneś wypić?</h3>
+                    <div className="question">
+                        <h4>Podaj swoją wagę:</h4>
+                        <FormInput id="weightInput" value={weight} type="number" onChange={handleWeightChange} />
+                        <h3>kg</h3>
+                    </div>
+                    <div className="question">
+                        <h4>Podaj swoją płeć:</h4>
+                        <FormSelect
+                            options={genderOptions}
+                            value={{ value: gender, label: gender }}
+                            onChange={handleGender}
+                        />
+                    </div>
+                    <div className="question">
+                        <h4>Podaj poziom aktywności:</h4>
+                        <FormSelect
+                            options={activityOptions}
+                            value={{ value: activity, label: activity }}
+                            onChange={handleActivity}
+                        />
+                    </div>
+                    <h4>sugerowana ilość wody to</h4>
+                    <div className="answer">
+                        <FormInput
+                            id="literInput"
+                            value={literAmount}
+                            type="number"
+                            onChange={handleLiterAmountChangeMyself}
+                        />
+                        <h3>ml</h3>
+                    </div>
+                    <h3>lub sam określ limit wody do wypicia</h3>
+                    <p>
+                        *możesz również samodzielnie określić jaką ilość wody chcesz wypić. Wystarczy, że poniżej
+                        wpiszesz wybraną wartość. Pamiętaj, że wartości podawane są w ml.
+                    </p>
+                    <div className="answer">
+                        <FormInput
+                            id="literInput"
+                            value={literAmount}
+                            type="number"
+                            onChange={handleLiterAmountChange}
+                        />
+                        <h3>ml</h3>
+                    </div>
                 </div>
             </div>
             <Footer />
@@ -110,18 +130,11 @@ const Wrapper = styled.div`
     .settings-container {
         position: relative;
         height: 78vh;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 0 auto;
+        width: 70vw;
+        margin: 0 auto;
         color: #2b2c32;
+        text-align: center;
         overflow: hidden;
-    }
-
-    .questions {
-        padding-left: 6rem;
     }
 
     .back-icon {
@@ -152,6 +165,7 @@ const Wrapper = styled.div`
 
     h4 {
         font-weight: 300;
+        padding-right: 0.5rem;
     }
 
     input::-webkit-outer-spin-button,
@@ -160,14 +174,35 @@ const Wrapper = styled.div`
         margin: 0;
     }
 
-    label {
-        padding: 1rem;
-        font-size: 1.1rem;
+    .choice-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 80%;
+    }
+
+    .question,
+    .answer {
+        display: flex;
+        align-items: center;
+    }
+
+    .calculate {
+        margin: 2rem 0;
+        font-size: 1.3rem;
+    }
+
+    p {
+        width: 30%;
+        font-size: 0.8rem;
+        line-height: 1.5rem;
     }
 
     .form-container {
         display: flex;
-        align-items: center;
+        flex-direction: column;
         h4 {
             font-weight: 400;
             padding-left: 0.5rem;
@@ -187,11 +222,11 @@ const Wrapper = styled.div`
         width: 12rem;
         padding: 0.5rem;
         margin: 0.5rem 0;
-        border-radius: 5px;
-        border: 1px solid #fff;
+        border-bottom: 1px solid #fff;
         font-size: 1.1rem;
         font-family: inherit;
         font-weight: 500;
+        text-align: center;
         color: inherit;
         background-color: transparent;
         cursor: pointer;
@@ -200,6 +235,10 @@ const Wrapper = styled.div`
     .form-select {
         width: 16rem;
         padding: 0.5rem 0;
+    }
+
+    label {
+        font-size: 1.4rem;
     }
 
     .background-img {

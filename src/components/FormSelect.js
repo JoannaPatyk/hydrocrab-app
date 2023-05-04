@@ -2,10 +2,9 @@ import React from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 
-const FormSelect = ({ value, options, text, placeholder, onChange }) => {
+const FormSelect = ({ value, options, placeholder, onChange }) => {
     return (
         <div className="select-container">
-            <h4>{text}</h4>
             <Select
                 myFontSize="16px"
                 className="form-select"
@@ -21,7 +20,6 @@ const FormSelect = ({ value, options, text, placeholder, onChange }) => {
 FormSelect.propTypes = {
     onChange: PropTypes.func,
     options: PropTypes.array,
-    text: PropTypes.string,
     placeholder: PropTypes.string,
     value: PropTypes.object
 };

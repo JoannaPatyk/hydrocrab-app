@@ -11,22 +11,13 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route
-                    path="dashboard"
-                    element={
-                        <>
-                            <Layout />
-                            <Dashboard />
-                        </>
-                    }
-                >
-                    <Route path="dashboard" element={<Dashboard />} />
+                <Route path="/" element={<Landing />} />
+                <Route path="/" element={<Layout />}>
+                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="settings" element={<Settings />} />
                     <Route path="facts" element={<Facts />} />
                     <Route path="about" element={<About />} />
                 </Route>
-
-                <Route path="/" element={<Landing />} />
             </Routes>
         </BrowserRouter>
     );
