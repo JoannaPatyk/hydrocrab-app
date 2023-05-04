@@ -42,6 +42,7 @@ function Dashboard() {
 
     const handleCleanUp = () => {
         setBigCupActiveHeight(0);
+        console.log(bigCupActiveHeight);
     };
 
     return (
