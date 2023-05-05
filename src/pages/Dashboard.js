@@ -4,55 +4,41 @@ import BigCup from '../components/BigCup';
 import SmallCup from '../components/SmallCup';
 import Footer from '../components/Footer';
 
-import { useWaterContext } from '../context/WaterContext';
+import { useAppStateContext } from '../context/AppStateContext';
 
 function Dashboard() {
-    const { literAmount } = useWaterContext();
-    const [bigCupActiveHeight, setBigCupActiveHeight] = useState(0);
-    const [partSmallCup, setPartSmallCup] = useState(0);
-    const [partMediumCup, setPartMediumCup] = useState(0);
-    const [partLargeCup, setPartLargeCup] = useState(0);
-
-    const MAX_CUP_HEIGHT = 330;
-    const CUP_HEIGHT_INCREMENT = 350;
+    const { appState, setAppState } = useAppStateContext();
+    const [drunkAmount, setDrunkAmount] = useState(0);
 
     useEffect(() => {
-        setPartSmallCup(literAmount / 250);
-        setPartMediumCup(literAmount / 500);
-        setPartLargeCup(literAmount / 1000);
-    }, [literAmount]);
-
-    const handleCup = (partCup) => {
-        if (bigCupActiveHeight < MAX_CUP_HEIGHT) {
-            setBigCupActiveHeight(bigCupActiveHeight + CUP_HEIGHT_INCREMENT / partCup);
-        }
-    };
+        setAppState({ ...appState, drunkWaterHeight: (350 * drunkAmount) / appState.literAmount });
+        // eslint-disable-next-line
+    }, [drunkAmount]);
 
     const handleSmallCup = () => {
-        handleCup(partSmallCup);
+        setDrunkAmount(drunkAmount + 250);
     };
 
-    const handleMediumCup = () => {
-        handleCup(partMediumCup);
+    const handlMediumCup = () => {
+        setDrunkAmount(drunkAmount + 300);
     };
 
-    const handleLargeCup = () => {
-        handleCup(partLargeCup);
+    const handleBigCup = () => {
+        setDrunkAmount(drunkAmount + 1000);
     };
 
     const handleCleanUp = () => {
-        setBigCupActiveHeight(0);
-        console.log(bigCupActiveHeight);
+        setDrunkAmount(0);
     };
 
     return (
         <Wrapper>
             <div className="dashboard-container">
                 <div className="main-container">
-                    <h1 className="target">Cel: {literAmount} ml</h1>
+                    <h1 className="target">Cel: {appState.literAmount} ml</h1>
                     <div className="cup-container">
                         <div className="big-cup-container">
-                            <BigCup bigCupActiveHeight={bigCupActiveHeight} />
+                            <BigCup />
                             <button className="btn" onClick={handleCleanUp}>
                                 wyczyść
                             </button>
@@ -61,10 +47,10 @@ function Dashboard() {
                             <button onClick={handleSmallCup}>
                                 <SmallCup height={'6rem'} text={'250 ml'} />
                             </button>
-                            <button onClick={handleMediumCup}>
+                            <button onClick={handlMediumCup}>
                                 <SmallCup height={'8rem'} text={'500 ml'} />
                             </button>
-                            <button onClick={handleLargeCup}>
+                            <button onClick={handleBigCup}>
                                 <SmallCup height={'10rem'} text={'1000 ml'} />
                             </button>
                         </div>
