@@ -1,69 +1,60 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../components/Footer';
 import FormSelect from '../components/FormSelect';
 import FormInput from '../components/FormInput';
 import { BsArrow90DegLeft } from 'react-icons/bs';
-import { useWaterContext } from '../context/WaterContext';
+import { useAppStateContext } from '../context/AppStateContext';
 import genderOptions from '../utils/gender';
 import activityOptions from '../utils/activity';
 
 function Settings() {
-    const { literAmount, setLiterAmount } = useWaterContext();
-    const [weight, setWeight] = useState('');
-    const [gender, setGender] = useState('');
-    const [activity, seActivity] = useState('');
+    const { appState, setAppState } = useAppStateContext();
 
     const handleLiterAmountChange = (event) => {
         const value = event.target.value;
-        setLiterAmount(value);
+        setAppState({ ...appState, literAmount: value });
     };
 
     const handleLiterAmountChangeMyself = () => {
-        let baseAmount = weight * 30;
+        let baseAmount = appState.weight * 30;
 
-        if (gender === 'kobieta') {
-            baseAmount += 100;
-        } else if (gender === 'mężczyzna') {
+        if (appState.gender === 'kobieta') {
             baseAmount += 200;
+        } else if (appState.gender === 'mężczyzna') {
+            baseAmount += 400;
         }
 
-        if (activity === 'mała') {
-            baseAmount += 50;
-        } else if (activity === 'średnia') {
-            baseAmount += 200;
-        } else if (activity === 'duża') {
-            baseAmount += 300;
+        if (appState.activity === 'mała') {
+            baseAmount += 150;
+        } else if (appState.activity === 'średnia') {
+            baseAmount += 400;
+        } else if (appState.activity === 'duża') {
+            baseAmount += 800;
         }
 
-        setLiterAmount(baseAmount);
+        setAppState({ ...appState, literAmount: baseAmount });
     };
 
     const handleWeightChange = (event) => {
         const value = event.target.value;
-        setWeight(value);
+        setAppState({ ...appState, weight: value });
     };
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            handleLiterAmountChangeMyself();
-        }, 1000);
-
-        return () => {
-            clearTimeout(timeout);
-        };
+        handleLiterAmountChangeMyself();
         // eslint-disable-next-line
-    }, [weight, gender, activity]);
+    }, [appState.weight, appState.gender, appState.activity]);
 
     const handleGender = (selected) => {
         const value = selected.value;
-        setGender(value);
+        setAppState({ ...appState, gender: value });
     };
 
     const handleActivity = (selected) => {
         const value = selected.value;
-        seActivity(value);
+        setAppState({ ...appState, activity: value });
     };
 
     return (
@@ -76,14 +67,19 @@ function Settings() {
                     <h3>Oblicz, ile wody powinieneś wypić?</h3>
                     <div className="question">
                         <h4>Podaj swoją wagę:</h4>
-                        <FormInput id="weightInput" value={weight} type="number" onChange={handleWeightChange} />
+                        <FormInput
+                            id="weightInput"
+                            value={appState.weight}
+                            type="number"
+                            onChange={handleWeightChange}
+                        />
                         <h3>kg</h3>
                     </div>
                     <div className="question">
                         <h4>Podaj swoją płeć:</h4>
                         <FormSelect
                             options={genderOptions}
-                            value={{ value: gender, label: gender }}
+                            value={{ value: appState.gender, label: appState.gender }}
                             onChange={handleGender}
                         />
                     </div>
@@ -91,7 +87,7 @@ function Settings() {
                         <h4>Podaj poziom aktywności:</h4>
                         <FormSelect
                             options={activityOptions}
-                            value={{ value: activity, label: activity }}
+                            value={{ value: appState.activity, label: appState.activity }}
                             onChange={handleActivity}
                         />
                     </div>
@@ -99,7 +95,7 @@ function Settings() {
                     <div className="answer">
                         <FormInput
                             id="literInput"
-                            value={literAmount}
+                            value={appState.literAmount}
                             type="number"
                             onChange={handleLiterAmountChangeMyself}
                         />
@@ -113,7 +109,7 @@ function Settings() {
                     <div className="answer">
                         <FormInput
                             id="literInput"
-                            value={literAmount}
+                            value={appState.literAmount}
                             type="number"
                             onChange={handleLiterAmountChange}
                         />

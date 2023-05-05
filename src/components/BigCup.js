@@ -1,22 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useAppStateContext } from '../context/AppStateContext';
 
-function BigCup({ bigCupActiveHeight }) {
+function BigCup() {
+    const { appState } = useAppStateContext();
     return (
         <Wrapper>
             <div className="big-cup-container">
                 <div className="big-cup">
-                    <div className="water" style={{ height: `${bigCupActiveHeight}px` }}></div>
+                    <div className="water" style={{ height: `${appState.drunkWaterHeight}px` }}></div>
                 </div>
             </div>
         </Wrapper>
     );
 }
-
-BigCup.propTypes = {
-    bigCupActiveHeight: PropTypes.any
-};
 
 const Wrapper = styled.div`
     .big-cup-container {
