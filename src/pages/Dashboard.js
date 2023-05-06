@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import BigCup from '../components/BigCup';
 import SmallCup from '../components/SmallCup';
 import Footer from '../components/Footer';
-import { BsInstagram, BsFacebook, BsLinkedin } from 'react-icons/bs';
 import { useAppStateContext } from '../context/AppStateContext';
 
 function Dashboard() {
@@ -20,7 +19,7 @@ function Dashboard() {
     };
 
     const handlMediumCup = () => {
-        setDrunkAmount(drunkAmount + 300);
+        setDrunkAmount(drunkAmount + 500);
     };
 
     const handleBigCup = () => {
@@ -61,13 +60,6 @@ function Dashboard() {
                         </div>
                     </div>
                 </div>
-
-                <div className="media-container">
-                    <BsInstagram />
-                    <BsFacebook />
-                    <BsLinkedin />
-                </div>
-
                 <Footer />
             </div>
         </Wrapper>
@@ -146,6 +138,13 @@ const Wrapper = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
+    }
+
+    .drop {
+        position: absolute;
+        bottom: 100px;
+        right: 10px;
+        font-size: 4rem;
     }
 
     .btn {

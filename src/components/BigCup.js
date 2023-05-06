@@ -61,7 +61,6 @@ const Wrapper = styled.div`
         width: 100%;
         border-bottom-left-radius: 80px;
         border-bottom-right-radius: 80px;
-        /* background-image: url('/assets/drops.png'); */
     }
 
     .icon {
