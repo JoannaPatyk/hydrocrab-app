@@ -69,14 +69,14 @@ const Wrapper = styled.div`
     }
 
     .icon {
-        color: whitesmoke;
+        color: #f5f5f5;
         font-size: 3rem;
     }
 
     .line {
         width: 5rem;
         height: 1px;
-        background-color: whitesmoke;
+        background-color: #f5f5f5;
     }
 
     .btn {

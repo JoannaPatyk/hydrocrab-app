@@ -11,11 +11,11 @@ function Menu() {
                     return (
                         <NavLink to={path} className="menu-element" key={id}>
                             <h1>{text}</h1>
-                            <div className="line"></div>
                         </NavLink>
                     );
                 })}
             </nav>
+            <hr />
         </Wrapper>
     );
 }
@@ -43,20 +43,22 @@ const Wrapper = styled.nav`
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        color: #2b2c32;
+        color: #fa7a5a;
         text-decoration: none;
+        transition: 0.5s;
     }
 
-    .line {
+    .menu-element:hover {
+        color: #f5532a;
+        transform: scale(0.95);
+    }
+
+    hr {
+        width: 80%;
         height: 2px;
-        width: 0;
-        border-radius: 10px;
-        background: linear-gradient(to right, #3771c8, #f37151);
-        transition: 0.6s;
-    }
-
-    .menu-element:hover .line {
-        width: 10rem;
+        border: none;
+        margin: 0 auto;
+        background: linear-gradient(to right, #6596c0, #f37151);
     }
 `;
 

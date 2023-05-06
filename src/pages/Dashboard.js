@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import BigCup from '../components/BigCup';
 import SmallCup from '../components/SmallCup';
 import Footer from '../components/Footer';
-
+import { BsInstagram, BsFacebook, BsLinkedin } from 'react-icons/bs';
 import { useAppStateContext } from '../context/AppStateContext';
 
 function Dashboard() {
@@ -29,16 +29,21 @@ function Dashboard() {
 
     const handleCleanUp = () => {
         setDrunkAmount(0);
+        setAppState({ ...appState, drunkWaterHeight: 0 });
     };
 
     return (
         <Wrapper>
             <div className="dashboard-container">
                 <div className="main-container">
-                    <h1 className="target">Cel: {appState.literAmount} ml</h1>
+                    <div className="info-panel">
+                        <h2 className="target">Cel: {appState.literAmount} ml</h2>
+                        <h2 className="drunk">Wypito: {drunkAmount} ml</h2>
+                        <h2 className="balance">Bilans: {appState.literAmount - drunkAmount} ml</h2>
+                    </div>
                     <div className="cup-container">
                         <div className="big-cup-container">
-                            <BigCup />
+                            <BigCup drunkAmount={drunkAmount} />
                             <button className="btn" onClick={handleCleanUp}>
                                 wyczyść
                             </button>
@@ -56,6 +61,13 @@ function Dashboard() {
                         </div>
                     </div>
                 </div>
+
+                <div className="media-container">
+                    <BsInstagram />
+                    <BsFacebook />
+                    <BsLinkedin />
+                </div>
+
                 <Footer />
             </div>
         </Wrapper>
@@ -65,7 +77,7 @@ function Dashboard() {
 const Wrapper = styled.div`
     .dashboard-container {
         position: relative;
-        min-height: 78vh;
+        min-height: calc(78vh - 4px);
         width: 100vw;
         overflow: hidden;
         text-align: center;
@@ -77,6 +89,14 @@ const Wrapper = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
+    }
+
+    .info-panel {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
     }
 
     .cup-container {
@@ -107,12 +127,15 @@ const Wrapper = styled.div`
         border: none;
     }
 
-    .target {
+    .target,
+    .drunk,
+    .balance {
         width: 20%;
-        font-size: 2.5rem;
-        font-weight: 300;
+        font-weight: 400;
+        color: #f5f5f5;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
         padding: 1rem;
-        border: 2px solid whitesmoke;
     }
 
     .big-cup-container {

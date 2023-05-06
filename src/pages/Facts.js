@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Facts() {
-    return <div>Facts</div>;
+    return <div></div>;
 }
 
 export default Facts;
