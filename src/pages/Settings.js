@@ -27,7 +27,7 @@ function Settings() {
         }
 
         if (appState.activity === 'mała') {
-            baseAmount += 150;
+            baseAmount += 200;
         } else if (appState.activity === 'średnia') {
             baseAmount += 400;
         } else if (appState.activity === 'duża') {
@@ -128,7 +128,7 @@ const Wrapper = styled.div`
         height: 78vh;
         width: 70vw;
         margin: 0 auto;
-        color: #2b2c32;
+        color: #f5f5f5;
         text-align: center;
         overflow: hidden;
     }
@@ -142,7 +142,7 @@ const Wrapper = styled.div`
         font-size: 1.5rem;
         line-height: 50px;
         text-align: center;
-        color: #2b2c32;
+        color: #f5f5f5;
     }
 
     h2,
@@ -176,7 +176,7 @@ const Wrapper = styled.div`
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: 80%;
+        height: 90%;
     }
 
     .question,
@@ -218,7 +218,7 @@ const Wrapper = styled.div`
         width: 12rem;
         padding: 0.5rem;
         margin: 0.5rem 0;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid #f5f5f5;
         font-size: 1.1rem;
         font-family: inherit;
         font-weight: 500;
@@ -235,35 +235,6 @@ const Wrapper = styled.div`
 
     label {
         font-size: 1.4rem;
-    }
-
-    .background-img {
-        height: 90%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: -90;
-        opacity: 0.9;
-    }
-
-    .wave-img {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -100;
-        opacity: 0.1;
-    }
-
-    .settings-img {
-        height: 75%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: -50;
-        opacity: 0.9;
     }
 `;
 

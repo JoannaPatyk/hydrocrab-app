@@ -30,7 +30,7 @@ const Wrapper = styled.div`
     }
 
     p {
-        color: black;
+        color: #f5f5f5;
         text-align: center;
         font-size: 1rem;
         font-family: 'Montserrat', sans-serif;
