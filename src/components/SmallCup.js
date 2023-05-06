@@ -40,20 +40,6 @@ const Wrapper = styled.div`
     .icon {
         animation: dropMove 2s infinite linear;
     }
-
-    @keyframes dropMove {
-        0% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(0.95);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
 `;
 
 export default SmallCup;
