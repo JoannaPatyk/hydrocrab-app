@@ -8,7 +8,7 @@ const initialAppState = {
     activity: '',
     literAmount: 0,
     drunkWaterHeight: 0,
-    wypite: 0,
+    drunkAmount: 0,
     weight: 0
 };
 
