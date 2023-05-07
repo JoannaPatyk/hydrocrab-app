@@ -58,7 +58,7 @@ const Wrapper = styled.nav`
         height: 2px;
         border: none;
         margin: 0 auto;
-        background: linear-gradient(to right, #6596c0, #f37151);
+        background: linear-gradient(to right, #2b2c32, #f37151);
     }
 `;
 

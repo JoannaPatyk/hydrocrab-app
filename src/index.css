@@ -37,20 +37,19 @@ body {
     color: #f5f5f5;
     font-family: inherit;
     font-size: 2rem;
+    font-weight: 400;
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.5rem;
     text-align: center;
-    border: 2px solid #f5f5f5;
-    box-shadow: 5px 5px 8px #111;
-    background-color: transparent;
+    background-color: #222222;
+    border: none;
     transition: 0.4s linear;
     cursor: pointer;
 }
 
 .btn:hover {
-    color: #2b2c32;
-    background-color: #f5f5f5;
+    background-color: #14609c;
     transform: scale(0.99);
 }
 
@@ -67,16 +66,14 @@ body {
     margin: 0.5rem;
     height: 10vh;
     line-height: 10vh;
-    color: #6596c0;
+    color: #14609c;
     font-size: 5rem;
-    font-weight: 200;
-    text-shadow: 5px 5px 5px #f5f5f559;
     font-family: 'Cedarville Cursive', sans-serif;
 }
 
 .icon {
-    color: #6596c0;
-    font-size: 3rem;
+    color: #14609c;
+    font-size: 4rem;
 }
 
 @keyframes dropMove {
