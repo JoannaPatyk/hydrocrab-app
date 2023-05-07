@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import drops from '../assets/drops.png';
-import { GiLaurelCrown } from 'react-icons/gi';
+import background from '../assets/background.jpg';
 import { useAppStateContext } from '../context/AppStateContext';
 
 function BigCup() {
@@ -24,8 +23,7 @@ function BigCup() {
                         className="water"
                         style={{ height: `${appState.drunkWaterHeight < 350 ? appState.drunkWaterHeight : 350}px` }}
                     >
-                        <GiLaurelCrown className={isActive ? 'icon active' : 'icon'} />
-                        <img src={drops} alt="" />
+                        <img src={background} alt="glass of water" />
                     </div>
                 </div>
             </div>
@@ -48,8 +46,8 @@ const Wrapper = styled.div`
         width: 180px;
         margin-bottom: 4rem;
         box-shadow: 5px 5px 10px #222222;
-        border-bottom-left-radius: 80px;
-        border-bottom-right-radius: 80px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
         background-color: rgb(245, 245, 245);
         overflow: hidden;
     }
@@ -59,16 +57,9 @@ const Wrapper = styled.div`
         bottom: 0;
         left: 0;
         width: 100%;
-        border-bottom-left-radius: 80px;
-        border-bottom-right-radius: 80px;
-    }
-
-    .icon {
-        display: none;
-    }
-
-    .active {
-        display: block;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        transition: 0.5s;
     }
 `;
 

@@ -38,7 +38,12 @@ const Wrapper = styled.div`
     }
 
     .icon {
+        transition: 0.5s;
         animation: dropMove 2s infinite linear;
+    }
+
+    .icon:hover {
+        color: #6fbee5;
     }
 `;
 

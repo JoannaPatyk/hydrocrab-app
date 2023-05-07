@@ -81,7 +81,7 @@ function Settings() {
                         <h3>kg</h3>
                     </div>
 
-                    <div>
+                    <div className="questions-container">
                         <div className="question">
                             <h3>Podaj swoją płeć:</h3>
                             <FormSelect
@@ -115,6 +115,7 @@ function Settings() {
                             id="literInput"
                             value={appState.literAmount}
                             type="number"
+                            disabled
                             onChange={handleLiterAmountChange}
                         />
                         <h3>ml</h3>
@@ -181,6 +182,14 @@ const Wrapper = styled.div`
         justify-content: center;
         width: 100%;
         height: 90%;
+    }
+
+    .questions-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px 30px;
+        margin: 1rem 0;
     }
 
     .question {

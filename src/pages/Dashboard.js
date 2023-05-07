@@ -27,8 +27,7 @@ function Dashboard() {
     };
 
     const handleCleanUp = () => {
-        setAppState({ ...appState, drunkAmount: 0 });
-        setAppState({ ...appState, drunkWaterHeight: 0 });
+        setAppState({ ...appState, drunkAmount: 0, drunkWaterHeight: 0 });
     };
 
     return (

@@ -52,7 +52,7 @@ const Wrapper = styled.div`
     .description-container {
         height: 70vh;
         width: 50%;
-        margin: 0 auto;
+        margin: 2rem auto;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -64,6 +64,7 @@ const Wrapper = styled.div`
     h2 {
         text-align: center;
         font-weight: 300;
+        margin-top: 2rem;
         margin-bottom: -2rem;
     }
 

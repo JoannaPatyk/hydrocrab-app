@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import background from '../assets/water-bg-landing.png';
+import background from '../assets/background.jpg';
 import { MdWaterDrop } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
@@ -9,19 +9,19 @@ function Landing() {
         <Wrapper>
             <div className="main-container">
                 <div className="left-side">
-                    <img className="bg" src={background} alt="Water" />
+                    <img className="bg" src={background} alt="water" />
                 </div>
                 <div className="right-side">
+                    <h1>Water changes everything...</h1>
                     <div className="icon-container">
                         <div className="line"></div>
                         <MdWaterDrop className="icon" />
                         <div className="line"></div>
                     </div>
-                    <h2>Water changes everything</h2>
-                    <h1>
-                        Monitor how much water you drink per day
-                        <br /> and make sure it's at a good level...
-                    </h1>
+                    <h2>
+                        Monitoruj, ile wody wypijasz dziennie
+                        <br /> i upewnij się, że to wystarczająca ilość...
+                    </h2>
                     <Link className="btn" to="/dashboard">
                         start
                     </Link>
@@ -36,7 +36,7 @@ const Wrapper = styled.div`
         height: 100vh;
         width: 100vw;
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 3fr;
     }
 
     .right-side {
@@ -46,20 +46,22 @@ const Wrapper = styled.div`
         align-items: center;
         flex-direction: column;
         gap: 1rem 20px;
-        background-color: #2b2c32;
-    }
-
-    h2 {
-        font-weight: 100;
-        letter-spacing: 0.5rem;
-        text-transform: uppercase;
+        background-color: #111111;
     }
 
     h1 {
+        font-weight: 100;
+        letter-spacing: 0.5rem;
+        font-size: 3rem;
+        font-family: 'Cedarville Cursive', cursive;
+    }
+
+    h2 {
         margin: 0.5rem 0;
         font-weight: 100;
-        font-family: 'Cedarville Cursive', cursive;
         text-align: center;
+        letter-spacing: 0.6rem;
+        line-height: 3rem;
     }
 
     .icon-container {
@@ -70,7 +72,7 @@ const Wrapper = styled.div`
 
     .icon {
         color: #f5f5f5;
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
     .line {

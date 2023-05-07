@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function FormInput({ id, type, label, value, onChange, placeholder }) {
+function FormInput({ id, type, label, value, disabled, onChange, placeholder }) {
     return (
         <div className="form-container">
             <label>{label}</label>
@@ -9,6 +9,7 @@ function FormInput({ id, type, label, value, onChange, placeholder }) {
                 id={id}
                 type={type}
                 value={value}
+                disabled={disabled}
                 className="form-input"
                 onChange={onChange}
                 placeholder={placeholder}
@@ -22,6 +23,7 @@ FormInput.propTypes = {
     type: PropTypes.string,
     value: PropTypes.any,
     label: PropTypes.string,
+    disabled: PropTypes.string,
     onChange: PropTypes.func,
     placeholder: PropTypes.string
 };
