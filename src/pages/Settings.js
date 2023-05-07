@@ -8,16 +8,12 @@ import { BsArrow90DegLeft } from 'react-icons/bs';
 import { useAppStateContext } from '../context/AppStateContext';
 import genderOptions from '../utils/gender';
 import activityOptions from '../utils/activity';
+import additionalAmount from '../utils/additionalAmount';
 
 function Settings() {
     const { appState, setAppState } = useAppStateContext();
 
-    const handleLiterAmountChange = (event) => {
-        const value = event.target.value;
-        setAppState({ ...appState, literAmount: value });
-    };
-
-    const handleLiterAmountChangeMyself = () => {
+    const handleLiterAmountChange = () => {
         let baseAmount = appState.weight * 30;
 
         if (appState.gender === 'kobieta') {
@@ -34,6 +30,9 @@ function Settings() {
             baseAmount += 800;
         }
 
+        console.log(additionalAmount);
+        baseAmount = baseAmount + parseInt(appState.additionalAmount);
+
         setAppState({ ...appState, literAmount: baseAmount });
     };
 
@@ -43,9 +42,9 @@ function Settings() {
     };
 
     useEffect(() => {
-        handleLiterAmountChangeMyself();
+        handleLiterAmountChange();
         // eslint-disable-next-line
-    }, [appState.weight, appState.gender, appState.activity]);
+    }, [appState.weight, appState.gender, appState.activity, appState.additionalAmount]);
 
     const handleGender = (selected) => {
         const value = selected.value;
@@ -57,6 +56,11 @@ function Settings() {
         setAppState({ ...appState, activity: value });
     };
 
+    const handleAdditional = (selected) => {
+        const value = selected.value;
+        setAppState({ ...appState, additionalAmount: value });
+    };
+
     return (
         <Wrapper>
             <Link to="/dashboard" className="back-icon">
@@ -64,9 +68,10 @@ function Settings() {
             </Link>
             <div className="settings-container">
                 <div className="choice-container">
-                    <h3>Oblicz, ile wody powinieneś wypić?</h3>
-                    <div className="question">
-                        <h4>Podaj swoją wagę:</h4>
+                    <h2>Oblicz, ile wody powinieneś wypić?</h2>
+
+                    <div className="weight">
+                        <h3>Podaj swoją wagę:</h3>
                         <FormInput
                             id="weightInput"
                             value={appState.weight}
@@ -75,37 +80,36 @@ function Settings() {
                         />
                         <h3>kg</h3>
                     </div>
-                    <div className="question">
-                        <h4>Podaj swoją płeć:</h4>
-                        <FormSelect
-                            options={genderOptions}
-                            value={{ value: appState.gender, label: appState.gender }}
-                            onChange={handleGender}
-                        />
+
+                    <div>
+                        <div className="question">
+                            <h3>Podaj swoją płeć:</h3>
+                            <FormSelect
+                                options={genderOptions}
+                                value={{ value: appState.gender, label: appState.gender }}
+                                onChange={handleGender}
+                            />
+                        </div>
+                        <div className="question">
+                            <h3>Podaj poziom aktywności:</h3>
+                            <FormSelect
+                                options={activityOptions}
+                                value={{ value: appState.activity, label: appState.activity }}
+                                onChange={handleActivity}
+                            />
+                        </div>
+                        <div className="question">
+                            <h3>Chcesz dodać więcej wody?</h3>
+                            <FormSelect
+                                options={additionalAmount}
+                                value={{ value: appState.additionalAmount, label: appState.additionalAmount }}
+                                onChange={handleAdditional}
+                            />
+                        </div>
                     </div>
-                    <div className="question">
-                        <h4>Podaj poziom aktywności:</h4>
-                        <FormSelect
-                            options={activityOptions}
-                            value={{ value: appState.activity, label: appState.activity }}
-                            onChange={handleActivity}
-                        />
-                    </div>
-                    <h4>sugerowana ilość wody to</h4>
-                    <div className="answer">
-                        <FormInput
-                            id="literInput"
-                            value={appState.literAmount}
-                            type="number"
-                            onChange={handleLiterAmountChangeMyself}
-                        />
-                        <h3>ml</h3>
-                    </div>
-                    <h3>lub sam określ limit wody do wypicia</h3>
-                    <p>
-                        *możesz również samodzielnie określić jaką ilość wody chcesz wypić. Wystarczy, że poniżej
-                        wpiszesz wybraną wartość. Pamiętaj, że wartości podawane są w ml.
-                    </p>
+
+                    <h2>sugerowana ilość wody to</h2>
+
                     <div className="answer">
                         <FormInput
                             id="literInput"
@@ -179,7 +183,13 @@ const Wrapper = styled.div`
         height: 90%;
     }
 
-    .question,
+    .question {
+        display: flex;
+        align-items: center;
+        gap: 0 20px;
+    }
+
+    .weight,
     .answer {
         display: flex;
         align-items: center;
@@ -219,7 +229,7 @@ const Wrapper = styled.div`
         padding: 0.5rem;
         margin: 0.5rem 0;
         border-bottom: 1px solid #f5f5f5;
-        font-size: 1.1rem;
+        font-size: 1.5rem;
         font-family: inherit;
         font-weight: 500;
         text-align: center;

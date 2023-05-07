@@ -6,6 +6,7 @@ const AppStateContext = createContext();
 const initialAppState = {
     gender: '',
     activity: '',
+    additionalAmount: 0,
     literAmount: 0,
     drunkWaterHeight: 0,
     drunkAmount: 0,
