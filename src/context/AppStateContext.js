@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const AppStateContext = createContext();
 
 const initialAppState = {
+    name: '',
     gender: '',
     activity: '',
     additionalAmount: 0,

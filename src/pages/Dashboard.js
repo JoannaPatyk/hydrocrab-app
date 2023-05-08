@@ -37,7 +37,7 @@ function Dashboard() {
                     <div className="info-panel">
                         <h2 className="target">Cel: {appState.literAmount} ml</h2>
                         <h2 className="drunk">Wypito: {appState.drunkAmount} ml</h2>
-                        <h2 className="balance">Bilans: {appState.literAmount - appState.drunkAmount} ml</h2>
+                        <h2 className="balance">Bilans: {-(appState.literAmount - appState.drunkAmount)} ml</h2>
                     </div>
                     <div className="cup-container">
                         <div className="big-cup-container">
