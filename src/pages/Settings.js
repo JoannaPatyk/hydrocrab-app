@@ -30,7 +30,6 @@ function Settings() {
             baseAmount += 800;
         }
 
-        console.log(additionalAmount);
         baseAmount = baseAmount + parseInt(appState.additionalAmount);
 
         setAppState({ ...appState, literAmount: baseAmount });
@@ -137,7 +136,7 @@ function Settings() {
 const Wrapper = styled.div`
     .settings-container {
         position: relative;
-        height: 78vh;
+        height: 76vh;
         width: 70vw;
         margin: 0 auto;
         color: #f5f5f5;

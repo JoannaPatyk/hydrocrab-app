@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import BigCup from '../components/BigCup';
-import SmallCup from '../components/SmallCup';
+import SmallCup from '../components/Drop';
 import Footer from '../components/Footer';
 import { useAppStateContext } from '../context/AppStateContext';
 
 function Dashboard() {
     const { appState, setAppState } = useAppStateContext();
-    console.log(appState);
 
     useEffect(() => {
         setAppState({ ...appState, drunkWaterHeight: (350 * appState.drunkAmount) / appState.literAmount });

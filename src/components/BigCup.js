@@ -10,7 +10,6 @@ function BigCup() {
     useEffect(() => {
         if (appState.drunkWaterHeight === 350) {
             setIsActive(!isActive);
-            console.log(isActive);
         }
         // eslint-disable-next-line
     }, [appState.drunkWaterHeight]);

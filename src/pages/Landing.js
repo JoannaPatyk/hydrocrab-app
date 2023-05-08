@@ -20,7 +20,7 @@ function Landing() {
                     </div>
                     <h2>
                         Monitoruj, ile wody wypijasz dziennie
-                        <br /> i upewnij się, że to wystarczająca ilość...
+                        <br />i upewnij się, że to wystarczająca ilość...
                     </h2>
                     <Link className="btn" to="/dashboard">
                         start

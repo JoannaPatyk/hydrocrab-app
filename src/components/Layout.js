@@ -1,12 +1,19 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import Logo from '../components/Logo';
 import Menu from '../components/Menu';
-import { AiOutlineLogout } from 'react-icons/ai';
+import { AiOutlineLogout, AiOutlineLeft } from 'react-icons/ai';
 
 function Layout() {
+    const location = useLocation();
+
     return (
         <main className="dashboard">
+            {location.pathname !== '/dashboard' && (
+                <Link to="/dashboard" className="btn-back">
+                    <AiOutlineLeft />
+                </Link>
+            )}
             <Link to="/">
                 <AiOutlineLogout className="btn-logout" />
             </Link>
