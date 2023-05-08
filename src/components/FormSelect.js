@@ -3,6 +3,31 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 
 const FormSelect = ({ value, options, placeholder, onChange }) => {
+    const SelectStyles = {
+        option: (defaultStyles, state) => ({
+            ...defaultStyles,
+            padding: '15px',
+            color: 'white',
+            fontWeight: state.isSelected ? 'bold' : 'normal',
+            borderBottom: '1px solid white',
+            backgroundColor: 'black',
+            cursor: 'pointer'
+        }),
+        singleValue: (defaultStyles) => ({
+            ...defaultStyles,
+            fontWeight: 'bold'
+        }),
+        dropdownIndicator: (defaultStyles) => ({
+            ...defaultStyles,
+            color: 'black',
+            cursor: 'pointer'
+        }),
+        menuList: (defaultStyles) => ({
+            ...defaultStyles,
+            padding: 0
+        })
+    };
+
     return (
         <div className="select-container">
             <Select
@@ -12,6 +37,7 @@ const FormSelect = ({ value, options, placeholder, onChange }) => {
                 options={options}
                 placeholder={placeholder}
                 value={value}
+                styles={SelectStyles}
             />
         </div>
     );

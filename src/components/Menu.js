@@ -26,6 +26,7 @@ const Wrapper = styled.nav`
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: #222222;
     }
 
     h1 {
@@ -54,8 +55,8 @@ const Wrapper = styled.nav`
     }
 
     hr {
-        width: 80%;
-        height: 2px;
+        width: 100%;
+        height: 4px;
         border: none;
         margin: 0 auto;
         background: linear-gradient(to right, #2b2c32, #f37151);

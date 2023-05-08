@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Footer from '../components/Footer';
 import FormSelect from '../components/FormSelect';
 import FormInput from '../components/FormInput';
-import { BsArrow90DegLeft } from 'react-icons/bs';
+import { AiOutlineLeft } from 'react-icons/ai';
 import { useAppStateContext } from '../context/AppStateContext';
 import genderOptions from '../utils/gender';
 import activityOptions from '../utils/activity';
@@ -36,6 +36,11 @@ function Settings() {
         setAppState({ ...appState, literAmount: baseAmount });
     };
 
+    const handleNameChange = (event) => {
+        const value = event.target.value;
+        setAppState({ ...appState, name: value });
+    };
+
     const handleWeightChange = (event) => {
         const value = event.target.value;
         setAppState({ ...appState, weight: value });
@@ -63,13 +68,16 @@ function Settings() {
 
     return (
         <Wrapper>
-            <Link to="/dashboard" className="back-icon">
-                <BsArrow90DegLeft />
+            <Link to="/dashboard" className="btn-back">
+                <AiOutlineLeft />
             </Link>
             <div className="settings-container">
                 <div className="choice-container">
-                    <h2>Oblicz, ile wody powinieneś wypić?</h2>
-
+                    <div className="question">
+                        <h3>Podaj swoje imię:</h3>
+                        <FormInput id="nameInput" value={appState.name} type="text" onChange={handleNameChange} />
+                    </div>
+                    <h2>Oblicz ile wody powinieneś/aś wypić?</h2>
                     <div className="weight">
                         <h3>Podaj swoją wagę:</h3>
                         <FormInput
@@ -80,7 +88,6 @@ function Settings() {
                         />
                         <h3>kg</h3>
                     </div>
-
                     <div className="questions-container">
                         <div className="question">
                             <h3>Podaj swoją płeć:</h3>
@@ -99,7 +106,7 @@ function Settings() {
                             />
                         </div>
                         <div className="question">
-                            <h3>Chcesz dodać więcej wody?</h3>
+                            <h3>Chcesz dodać więcej ml wody?</h3>
                             <FormSelect
                                 options={additionalAmount}
                                 value={{ value: appState.additionalAmount, label: appState.additionalAmount }}
@@ -108,7 +115,7 @@ function Settings() {
                         </div>
                     </div>
 
-                    <h2>sugerowana ilość wody to</h2>
+                    <h2>sugerowana ilość wody do wypicia w trakcie dnia to</h2>
 
                     <div className="answer">
                         <FormInput
@@ -136,18 +143,6 @@ const Wrapper = styled.div`
         color: #f5f5f5;
         text-align: center;
         overflow: hidden;
-    }
-
-    .back-icon {
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        font-size: 1.5rem;
-        line-height: 50px;
-        text-align: center;
-        color: #f5f5f5;
     }
 
     h2,
