@@ -12,16 +12,13 @@ function Landing() {
                     <img className="bg" src={background} alt="water" />
                 </div>
                 <div className="right-side">
-                    <h1>Water changes everything...</h1>
+                    <h1>Water changes everything!</h1>
                     <div className="icon-container">
                         <div className="line"></div>
                         <MdWaterDrop className="icon" />
                         <div className="line"></div>
                     </div>
-                    <h2>
-                        Monitoruj, ile wody wypijasz dziennie
-                        <br />i upewnij się, że to wystarczająca ilość...
-                    </h2>
+                    <h2>Monitoruj, ile wody wypijasz dziennie i upewnij się, że to wystarczająca ilość...</h2>
                     <Link className="btn" to="/dashboard">
                         start
                     </Link>
@@ -50,14 +47,17 @@ const Wrapper = styled.div`
     }
 
     h1 {
+        margin: 0.5rem 2rem;
         font-weight: 100;
         letter-spacing: 0.5rem;
         font-size: 3rem;
+        text-align: center;
         font-family: 'Cedarville Cursive', cursive;
     }
 
     h2 {
-        margin: 0.5rem 0;
+        width: 70%;
+        margin: 0.5rem 2rem;
         font-weight: 100;
         text-align: center;
         letter-spacing: 0.3rem;
@@ -91,6 +91,61 @@ const Wrapper = styled.div`
         left: -5%;
         z-index: -10;
         height: 100%;
+    }
+
+    @media (max-width: 1150px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            line-height: 2.5rem;
+        }
+
+        .icon {
+            font-size: 3.5rem;
+        }
+    }
+
+    @media (max-width: 945px) {
+        h1 {
+            font-size: 2.2rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            line-height: 2.5rem;
+        }
+
+        .icon {
+            font-size: 3rem;
+        }
+    }
+
+    @media (max-width: 620px) {
+        .main-container {
+            grid-template-columns: 0.25fr 2.75fr;
+        }
+        .btn {
+            width: 18rem;
+            font-size: 1.6rem;
+        }
+    }
+
+    @media (max-width: 495px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1rem;
+            line-height: 1.8rem;
+        }
+        .btn {
+            width: 16rem;
+            font-size: 1.6rem;
+        }
     }
 `;
 
