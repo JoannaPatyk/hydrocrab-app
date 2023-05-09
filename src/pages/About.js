@@ -21,25 +21,30 @@ function About() {
                 <p>
                     <span>Hydrodrop</span> pomoże wyrobić Ci nawyk picia wody!
                 </p>
-                <h2>Znajdziesz nas:</h2>
                 <div className="media-container">
-                    <div className="drops">
-                        <BsDroplet className="drop" />
-                        <a href="https://www.instagram.com/">
-                            <BsInstagram className="ig" />
-                        </a>
-                    </div>
-                    <div className="drops">
-                        <BsDroplet className="drop" />
-                        <a href="https://www.facebook.com/">
-                            <BsFacebook className="fb" />
-                        </a>
-                    </div>
-                    <div className="drops">
-                        <BsDroplet className="drop" />
-                        <a href="https://twitter.com/">
-                            <BsTwitter className="tt" />
-                        </a>
+                    <h2>
+                        <span>Znajdziesz nas:</span>
+                    </h2>
+
+                    <div className="drops-container">
+                        <div className="drop">
+                            <BsDroplet className="drop-icon" />
+                            <a href="https://www.instagram.com/">
+                                <BsInstagram className="ig" />
+                            </a>
+                        </div>
+                        <div className="drop">
+                            <BsDroplet className="drop-icon" />
+                            <a href="https://www.facebook.com/">
+                                <BsFacebook className="fb" />
+                            </a>
+                        </div>
+                        <div className="drop">
+                            <BsDroplet className="drop-icon" />
+                            <a href="https://twitter.com/">
+                                <BsTwitter className="tt" />
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <h1>Water changes everything!</h1>
@@ -50,8 +55,8 @@ function About() {
 
 const Wrapper = styled.div`
     .description-container {
-        height: 70vh;
-        width: 50%;
+        min-height: 70vh;
+        width: 60%;
         margin: 2rem auto;
         display: flex;
         align-items: center;
@@ -64,8 +69,6 @@ const Wrapper = styled.div`
     h2 {
         text-align: center;
         font-weight: 300;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
     }
 
     h1 {
@@ -88,24 +91,35 @@ const Wrapper = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 10px 50px;
+        flex-direction: column;
+        gap: 20px 50px;
         margin: 0 auto;
     }
 
-    .drops {
+    .drops-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0 40px;
+    }
+
+    .drop {
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: #fa7a5a;
         animation: dropMove 2s infinite linear;
         transition: 0.5s;
         cursor: pointer;
     }
 
-    .drops:hover {
+    .drop:hover {
         color: #f5532a;
         transform: scale(0.95);
     }
 
-    .drop {
+    .drop-icon {
         font-size: 5rem;
     }
 
@@ -118,6 +132,33 @@ const Wrapper = styled.div`
         transform: translate(-50%, -50%);
         font-size: 1.5rem;
         color: #fa7a5a;
+    }
+
+    @media (max-width: 1160px) {
+        .description-container {
+            width: 80%;
+        }
+    }
+
+    @media (max-width: 880px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            line-height: 1.7rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 570px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        .drops-container {
+            gap: 0 20px;
+        }
     }
 `;
 

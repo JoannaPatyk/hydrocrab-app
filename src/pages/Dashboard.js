@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import BigCup from '../components/BigCup';
 import SmallCup from '../components/Drop';
-import Footer from '../components/Footer';
 import { useAppStateContext } from '../context/AppStateContext';
 
 function Dashboard() {
@@ -58,7 +57,6 @@ function Dashboard() {
                         </div>
                     </div>
                 </div>
-                <Footer />
             </div>
         </Wrapper>
     );

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Footer from '../components/Footer';
 import FormSelect from '../components/FormSelect';
 import FormInput from '../components/FormInput';
 import { AiOutlineLeft } from 'react-icons/ai';
@@ -128,7 +127,6 @@ function Settings() {
                     </div>
                 </div>
             </div>
-            <Footer />
         </Wrapper>
     );
 }
@@ -136,7 +134,7 @@ function Settings() {
 const Wrapper = styled.div`
     .settings-container {
         position: relative;
-        height: 76vh;
+        min-height: 76vh;
         width: 70vw;
         margin: 0 auto;
         color: #f5f5f5;

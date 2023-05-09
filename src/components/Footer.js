@@ -13,7 +13,7 @@ function Footer() {
 
 const Wrapper = styled.div`
     .footer-container {
-        position: absolute;
+        position: fixed;
         bottom: 0;
         width: 100%;
         min-height: 5vh;

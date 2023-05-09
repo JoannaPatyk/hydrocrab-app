@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import Logo from '../components/Logo';
 import Menu from '../components/Menu';
+import Footer from './Footer';
 import { AiOutlineLogout, AiOutlineLeft } from 'react-icons/ai';
 
 function Layout() {
@@ -22,6 +23,7 @@ function Layout() {
             <div className="dashboard-page">
                 <Outlet />
             </div>
+            <Footer />
         </main>
     );
 }

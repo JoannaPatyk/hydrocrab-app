@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
-import Facts from './pages/Facts';
 import About from './pages/About';
 import Landing from './pages/Landing';
 import Layout from './components/Layout';
@@ -15,7 +14,6 @@ function App() {
                 <Route path="/" element={<Layout />}>
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="settings" element={<Settings />} />
-                    <Route path="facts" element={<Facts />} />
                     <Route path="about" element={<About />} />
                 </Route>
             </Routes>
