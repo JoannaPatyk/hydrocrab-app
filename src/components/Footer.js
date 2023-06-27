@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import Wrapper from '../assets/wrappers/Footer';
 
 function Footer() {
     return (
@@ -10,24 +10,5 @@ function Footer() {
         </Wrapper>
     );
 }
-
-const Wrapper = styled.div`
-    .footer-container {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        min-height: 5vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        background-color: #222222;
-    }
-
-    h4 {
-        font-weight: 300;
-        line-height: 5vh;
-    }
-`;
 
 export default Footer;

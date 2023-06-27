@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { MdWaterDrop } from 'react-icons/md';
+import Wrapper from '../assets/wrappers/Drop';
 
-function SmallCup({ height, text }) {
+function Drop({ height, text }) {
     return (
         <Wrapper>
             <div className="small-cup">
@@ -14,37 +14,9 @@ function SmallCup({ height, text }) {
     );
 }
 
-SmallCup.propTypes = {
+Drop.propTypes = {
     height: PropTypes.string,
     text: PropTypes.string
 };
 
-const Wrapper = styled.div`
-    .small-cup {
-        position: relative;
-        width: 4rem;
-    }
-
-    .small-cup:hover {
-        cursor: pointer;
-    }
-
-    p {
-        color: #f5f5f5;
-        text-align: center;
-        font-size: 1rem;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 500;
-    }
-
-    .icon {
-        transition: 0.5s;
-        animation: dropMove 2s infinite linear;
-    }
-
-    .icon:hover {
-        color: #6fbee5;
-    }
-`;
-
-export default SmallCup;
+export default Drop;
