@@ -83,7 +83,7 @@ const Wrapper = styled.div`
         width: 12rem;
         padding: 0.5rem;
         margin: 0.5rem 0;
-        border-bottom: 1px solid #f5f5f5;
+        border-bottom: 1px solid #0fb6fa;
         font-size: 1.5rem;
         font-family: inherit;
         font-weight: 500;

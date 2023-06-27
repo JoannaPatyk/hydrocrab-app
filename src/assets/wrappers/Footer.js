@@ -10,7 +10,7 @@ const Wrapper = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background-color: #222222;
+        background-color: #111111;
     }
 
     h4 {

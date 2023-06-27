@@ -55,7 +55,7 @@ const Wrapper = styled.div`
     .balance {
         width: 35%;
         font-weight: 400;
-        color: #f5f5f5;
+        color: #0fb6fa;
         text-transform: uppercase;
         letter-spacing: 0.1rem;
         padding: 1rem;

@@ -7,13 +7,14 @@ const Wrapper = styled.nav`
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #222222;
+        background-color: #111111;
     }
 
     h1 {
         padding: 1rem 2rem;
         font-weight: 400;
         font-size: 1.5rem;
+        font-family: 'Righteous', sans-serif;
         letter-spacing: 0.4rem;
         text-transform: uppercase;
         transition: 0.3s;
@@ -25,13 +26,13 @@ const Wrapper = styled.nav`
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        color: #fa7a5a;
+        color: #ff401b;
         text-decoration: none;
         transition: 0.5s;
     }
 
     .menu-element:hover {
-        color: #f5532a;
+        color: #f18569;
         transform: scale(0.95);
     }
 
@@ -50,12 +51,12 @@ const Wrapper = styled.nav`
         left: 20px;
         z-index: 11;
         font-size: 2rem;
-        color: #fa7a5a;
+        color: #ff401b;
         cursor: pointer;
     }
 
     .menu-icon:hover {
-        color: #f5532a;
+        color: #f18569;
     }
 
     .smallMenu {
@@ -98,7 +99,7 @@ const Wrapper = styled.nav`
     .line {
         width: 5rem;
         height: 1px;
-        background-color: #f5f5f5;
+        background-color: #0fb6fa;
     }
 
     @media (max-width: 1080px) {

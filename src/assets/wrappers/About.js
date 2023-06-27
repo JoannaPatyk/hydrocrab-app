@@ -4,23 +4,27 @@ const Wrapper = styled.div`
     .description-container {
         min-height: 70vh;
         width: 60%;
-        margin: 2rem auto;
+        margin: 0 auto;
+        padding: 4rem;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
         gap: 10px 50px;
         text-align: center;
     }
 
+    h1 {
+        text-align: center;
+        width: 100%;
+        font-size: 4rem;
+        color: #ff401b;
+        letter-spacing: 0.5rem;
+    }
+
     h2 {
         text-align: center;
         font-weight: 300;
-    }
-
-    h1 {
-        font-size: 3rem;
-        font-family: 'Cedarville Cursive', sans-serif;
     }
 
     p {
@@ -55,14 +59,14 @@ const Wrapper = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #fa7a5a;
+        color: #ff401b;
         animation: dropMove 2s infinite linear;
         transition: 0.5s;
         cursor: pointer;
     }
 
     .drop:hover {
-        color: #f5532a;
+        color: #f18569;
         transform: scale(0.95);
     }
 
@@ -78,7 +82,7 @@ const Wrapper = styled.div`
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 1.5rem;
-        color: #fa7a5a;
+        color: #ff401b;
     }
 
     @media (max-width: 1160px) {

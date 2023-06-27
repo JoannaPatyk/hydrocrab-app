@@ -44,14 +44,14 @@ const Wrapper = styled.div`
     }
 
     .icon {
-        color: #f5f5f5;
+        color: #0fb6fa;
         font-size: 4rem;
     }
 
     .line {
         width: 5rem;
         height: 1px;
-        background-color: #f5f5f5;
+        background-color: #0fb6fa;
     }
 
     .btn {

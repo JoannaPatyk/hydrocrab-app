@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     }
 
     p {
-        color: #f5f5f5;
+        color: #0fb6fa;
         text-align: center;
         font-size: 1rem;
         font-family: 'Montserrat', sans-serif;
