@@ -26,7 +26,6 @@ function Menu() {
                         );
                     })}
                 </nav>
-                <hr />
             </div>
 
             <div className={isOpen ? 'smallMenu open' : 'smallMenu'}>

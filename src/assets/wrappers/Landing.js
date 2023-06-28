@@ -16,20 +16,18 @@ const Wrapper = styled.div`
         align-items: center;
         flex-direction: column;
         gap: 1rem 20px;
-        background-color: #111111;
     }
 
     h1 {
         margin: 0.5rem 2rem;
         font-weight: 100;
         letter-spacing: 0.5rem;
-        font-size: 3rem;
+        font-size: 3.5rem;
         text-align: center;
-        font-family: 'Cedarville Cursive', cursive;
     }
 
     h2 {
-        width: 70%;
+        width: 50%;
         margin: 0.5rem 2rem;
         font-weight: 100;
         text-align: center;
@@ -64,6 +62,36 @@ const Wrapper = styled.div`
         left: -5%;
         z-index: -10;
         height: 100%;
+    }
+
+    .ball {
+        position: absolute;
+        z-index: -1;
+        border-radius: 50%;
+        animation: dropMove 3s infinite;
+    }
+
+    .v1 {
+        bottom: 5%;
+        right: 15%;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .v2 {
+        bottom: 5%;
+        right: 15%;
+        bottom: 10%;
+        right: 5%;
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .v3 {
+        bottom: 15%;
+        right: 12%;
+        width: 10rem;
+        height: 10rem;
     }
 
     @media (max-width: 1150px) {

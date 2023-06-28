@@ -7,7 +7,6 @@ import { useAppStateContext } from '../context/AppStateContext';
 import genderOptions from '../utils/gender';
 import activityOptions from '../utils/activity';
 import additionalAmount from '../utils/additionalAmount';
-import drop from '../assets/images/water-drop.png';
 import Wrapper from '../assets/wrappers/Settings';
 
 function Settings() {
@@ -126,10 +125,6 @@ function Settings() {
                     </div>
                 </div>
             </div>
-            {/* <img src={drop} alt="drop" className="drop v0" />
-            <img src={drop} alt="drop" className="drop v1" />
-            <img src={drop} alt="drop" className="drop v2" />
-            <img src={drop} alt="drop" className="drop v3" /> */}
         </Wrapper>
     );
 }

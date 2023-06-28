@@ -18,10 +18,13 @@ function Landing() {
                         <MdWaterDrop className="icon" />
                         <div className="line"></div>
                     </div>
-                    <h2>Monitoruj, ile wody wypijasz dziennie i upewnij się, że to wystarczająca ilość...</h2>
+                    <h2>Monitoruj, ile wody wypijasz dziennie i upewnij się, że to wystarczająca ilość!</h2>
                     <Link className="btn" to="/dashboard">
                         start
                     </Link>
+                    <div className="ball v1"></div>
+                    <div className="ball v2"></div>
+                    <div className="ball v3"></div>
                 </div>
             </div>
         </Wrapper>

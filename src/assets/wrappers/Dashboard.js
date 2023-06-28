@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
     .dashboard-container {
         position: relative;
-        min-height: calc(78vh - 4px);
+        min-height: calc(78vh - 8px);
         width: 100vw;
         overflow: hidden;
         text-align: center;
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
 
     .cup-container {
         height: 60vh;
-        width: 80vw;
+        width: 50vw;
         display: grid;
         grid-template-columns: 1fr 1fr;
     }

@@ -7,7 +7,6 @@ const Wrapper = styled.nav`
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #111111;
     }
 
     h1 {
@@ -34,14 +33,6 @@ const Wrapper = styled.nav`
     .menu-element:hover {
         color: #f18569;
         transform: scale(0.95);
-    }
-
-    hr {
-        width: 100%;
-        height: 4px;
-        border: none;
-        margin: 0 auto;
-        background: linear-gradient(to right, #2b2c32, #f37151);
     }
 
     .menu-icon {

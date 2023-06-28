@@ -1,28 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import background from '../assets/images/background.jpg';
+import React from 'react';
 import { useAppStateContext } from '../context/AppStateContext';
 import Wrapper from '../assets/wrappers/BigCup';
+import { BiCrown } from 'react-icons/bi';
 
 function BigCup() {
     const { appState } = useAppStateContext();
-    const [isActive, setIsActive] = useState(false);
-
-    useEffect(() => {
-        if (appState.drunkWaterHeight === 350) {
-            setIsActive(!isActive);
-        }
-    }, [isActive, appState.drunkWaterHeight]);
+    const crownClassName = appState.drunkWaterHeight >= 350 ? 'crown show' : 'crown';
 
     return (
         <Wrapper>
-            <div className="big-cup-container">
+            <div className="container">
+                <BiCrown className={crownClassName} />
+
                 <div className="big-cup">
                     <div
                         className="water"
-                        style={{ height: `${appState.drunkWaterHeight < 350 ? appState.drunkWaterHeight : 350}px` }}
-                    >
-                        <img src={background} alt="glass of water" />
-                    </div>
+                        style={{
+                            height: `${appState.drunkWaterHeight < 350 ? appState.drunkWaterHeight : 350}px`,
+                            backgroundColor: '#0fb6fa'
+                        }}
+                    ></div>
                 </div>
             </div>
         </Wrapper>
