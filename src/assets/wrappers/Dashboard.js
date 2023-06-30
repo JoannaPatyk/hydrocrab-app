@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     }
 
     .info-panel {
-        width: 80%;
+        width: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -54,8 +54,8 @@ const Wrapper = styled.div`
     .drunk,
     .balance {
         width: 35%;
-        font-weight: 400;
-        color: #0fb6fa;
+
+        color: #66a1fb;
         text-transform: uppercase;
         letter-spacing: 0.1rem;
         padding: 1rem;
@@ -82,14 +82,22 @@ const Wrapper = styled.div`
         letter-spacing: 0.2rem;
     }
 
-    .bg-img {
-        width: 100%;
+    .bg-image-1 {
+        height: 150%;
         position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -100;
-        opacity: 0.1;
+        top: -35%;
+        right: -5%;
+        z-index: -1;
+        opacity: 0.7;
+    }
+
+    .bg-image-2 {
+        height: 150%;
+        position: absolute;
+        top: -25%;
+        left: -5%;
+        z-index: -1;
+        opacity: 0.7;
     }
 
     @media (max-width: 1070px) {

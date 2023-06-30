@@ -11,13 +11,12 @@ function BigCup() {
         <Wrapper>
             <div className="container">
                 <BiCrown className={crownClassName} />
-
                 <div className="big-cup">
                     <div
                         className="water"
                         style={{
                             height: `${appState.drunkWaterHeight < 350 ? appState.drunkWaterHeight : 350}px`,
-                            backgroundColor: '#0fb6fa'
+                            backgroundColor: '#66a1fb'
                         }}
                     ></div>
                 </div>

@@ -10,8 +10,8 @@ const Wrapper = styled.nav`
     }
 
     h1 {
-        padding: 1rem 2rem;
-        font-weight: 400;
+        padding: 1rem;
+
         font-size: 1.5rem;
         font-family: 'Righteous', sans-serif;
         letter-spacing: 0.4rem;
@@ -58,7 +58,7 @@ const Wrapper = styled.nav`
         width: 100vw;
         height: calc(95vh - 4px);
         z-index: 10;
-        background-color: #222;
+        background-color: #ffffff;
         transition: 0.5s;
     }
 
@@ -90,7 +90,7 @@ const Wrapper = styled.nav`
     .line {
         width: 5rem;
         height: 1px;
-        background-color: #0fb6fa;
+        background-color: #66a1fb;
     }
 
     @media (max-width: 1080px) {

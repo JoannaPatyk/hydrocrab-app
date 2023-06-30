@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+    .title-container {
+        padding-top: 2rem;
+    }
+
     @media (max-width: 820px) {
         .title {
             font-size: 4rem;

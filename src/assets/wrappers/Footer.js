@@ -10,12 +10,13 @@ const Wrapper = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background-color: transparent;
+        background-color: #66a1fb;
     }
 
     h4 {
-        font-weight: 300;
         line-height: 5vh;
+        color: #ffffff;
+        letter-spacing: 0.1rem;
     }
 `;
 

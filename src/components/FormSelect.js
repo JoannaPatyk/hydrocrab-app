@@ -10,12 +10,12 @@ const FormSelect = ({ value, options, placeholder, onChange }) => {
             color: 'white',
             fontWeight: state.isSelected ? 'bold' : 'normal',
             borderBottom: '1px solid white',
-            backgroundColor: 'black',
+            backgroundColor: '#66a1fb',
             cursor: 'pointer'
         }),
         singleValue: (defaultStyles) => ({
             ...defaultStyles,
-            fontWeight: 'bold'
+            color: '#66a1fb'
         }),
         dropdownIndicator: (defaultStyles) => ({
             ...defaultStyles,

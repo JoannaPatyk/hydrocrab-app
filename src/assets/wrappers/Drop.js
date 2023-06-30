@@ -11,21 +11,19 @@ const Wrapper = styled.div`
     }
 
     p {
-        color: #0fb6fa;
+        color: #66a1fb;
         text-align: center;
         font-size: 1rem;
         font-family: 'Righteous', sans-serif;
-        font-weight: 500;
     }
 
     .icon {
         transition: 0.5s;
-        color: #0fb7fa67;
         animation: dropMove 2s infinite linear;
     }
 
     .icon:hover {
-        color: #0fb6fa;
+        color: #66a1fb;
     }
 `;
 

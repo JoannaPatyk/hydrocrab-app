@@ -1,15 +1,22 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    .main-container {
+    .container {
+        position: relative;
         height: 100vh;
         width: 100vw;
-        display: grid;
-        grid-template-columns: 1fr 3fr;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
     }
 
-    .right-side {
-        position: relative;
+    .left-side img {
+        margin-left: 10rem;
+        height: 80%;
+    }
+
+    .main {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -20,18 +27,22 @@ const Wrapper = styled.div`
 
     h1 {
         margin: 0.5rem 2rem;
-        font-weight: 100;
+
         letter-spacing: 0.5rem;
-        font-size: 3.5rem;
+        font-size: 8rem;
         text-align: center;
+
+        span {
+            color: #66a1fb;
+        }
     }
 
     h2 {
-        width: 50%;
+        width: 45%;
         margin: 0.5rem 2rem;
-        font-weight: 100;
+
         text-align: center;
-        letter-spacing: 0.3rem;
+        letter-spacing: 0.2rem;
         line-height: 3rem;
     }
 
@@ -42,56 +53,36 @@ const Wrapper = styled.div`
     }
 
     .icon {
-        color: #0fb6fa;
-        font-size: 4rem;
+        color: #66a1fb;
+        font-size: 4.5;
     }
 
     .line {
-        width: 5rem;
-        height: 1px;
-        background-color: #0fb6fa;
+        width: 8rem;
+        height: 2px;
+        background-color: #66a1fb;
     }
 
     .btn {
         margin-top: 1rem;
     }
 
-    .bg {
-        position: absolute;
-        top: 0;
-        left: -5%;
-        z-index: -10;
-        height: 100%;
-    }
-
-    .ball {
+    .image {
         position: absolute;
         z-index: -1;
-        border-radius: 50%;
-        animation: dropMove 3s infinite;
+        height: 100%;
+        opacity: 0.7;
     }
 
-    .v1 {
-        bottom: 5%;
-        right: 15%;
-        width: 4rem;
-        height: 4rem;
+    .bg-image-1 {
+        top: 0;
+        left: 5%;
     }
 
-    .v2 {
-        bottom: 5%;
-        right: 15%;
-        bottom: 10%;
+    .bg-image-2 {
+        top: -5%;
         right: 5%;
-        width: 6rem;
-        height: 6rem;
-    }
-
-    .v3 {
-        bottom: 15%;
-        right: 12%;
-        width: 10rem;
-        height: 10rem;
+        transform: rotate(140deg);
     }
 
     @media (max-width: 1150px) {

@@ -11,7 +11,6 @@ const Wrapper = styled.div`
     h3 {
         font-size: 1.3rem;
         margin: 1rem 0;
-        font-weight: 300;
     }
 
     input::-webkit-outer-spin-button,
@@ -22,9 +21,8 @@ const Wrapper = styled.div`
 
     .choice-container {
         min-height: 76vh;
-        width: 35vw;
-        margin: 0 auto;
-        padding-left: 0.8rem;
+        width: 30vw;
+        margin: -1rem auto 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -63,14 +61,12 @@ const Wrapper = styled.div`
         display: flex;
         flex-direction: column;
         h4 {
-            font-weight: 400;
             padding-left: 0.5rem;
             text-align: start;
         }
     }
 
     .form-container h4 {
-        font-weight: 400;
         padding-left: 0.5rem;
         text-align: start;
     }
@@ -83,10 +79,10 @@ const Wrapper = styled.div`
         width: 12rem;
         padding: 0.5rem;
         margin: 0.5rem 0;
-        border-bottom: 1px solid #0fb6fa;
+        border-bottom: 1px solid #66a1fb;
         font-size: 1.5rem;
         font-family: inherit;
-        font-weight: 500;
+
         text-align: center;
         color: inherit;
         background-color: transparent;
@@ -124,6 +120,26 @@ const Wrapper = styled.div`
     .v3 {
         bottom: 55%;
         right: 30%;
+    }
+
+    .image {
+        position: absolute;
+        z-index: -1;
+
+        opacity: 0.7;
+    }
+
+    .bg-image-1 {
+        height: 110%;
+        top: -10%;
+        left: 8%;
+    }
+
+    .bg-image-2 {
+        height: 120%;
+        top: -5%;
+        right: 10%;
+        transform: rotate(120deg);
     }
 
     @media (max-width: 1300px) {

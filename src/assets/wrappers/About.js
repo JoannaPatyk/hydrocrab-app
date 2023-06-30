@@ -5,7 +5,7 @@ const Wrapper = styled.div`
         min-height: 70vh;
         width: 60%;
         margin: 0 auto;
-        padding: 4rem;
+        padding: 2rem 4rem;
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -15,6 +15,7 @@ const Wrapper = styled.div`
     }
 
     h1 {
+        padding: 1rem 0;
         text-align: center;
         width: 100%;
         font-size: 4rem;
@@ -24,16 +25,11 @@ const Wrapper = styled.div`
 
     h2 {
         text-align: center;
-        font-weight: 300;
     }
 
     p {
         line-height: 1.9rem;
         letter-spacing: 0.05rem;
-    }
-
-    span {
-        font-weight: 600;
     }
 
     .media-container {
@@ -44,14 +40,14 @@ const Wrapper = styled.div`
         align-items: center;
         flex-direction: column;
         gap: 20px 50px;
-        margin: 0 auto;
+        margin: 2rem auto 0;
     }
 
     .drops-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 0 40px;
+        gap: 0 50px;
     }
 
     .drop {
@@ -65,13 +61,8 @@ const Wrapper = styled.div`
         cursor: pointer;
     }
 
-    .drop:hover {
-        color: #f18569;
-        transform: scale(0.95);
-    }
-
     .drop-icon {
-        font-size: 5rem;
+        font-size: 6rem;
     }
 
     .ig,
@@ -83,6 +74,18 @@ const Wrapper = styled.div`
         transform: translate(-50%, -50%);
         font-size: 1.5rem;
         color: #ff401b;
+        transition: 0.5s;
+    }
+
+    .drop:hover {
+        color: #f18569;
+        transform: scale(0.95);
+    }
+
+    .drop:hover .ig,
+    .drop:hover .fb,
+    .drop:hover .tt {
+        color: #f18569;
     }
 
     @media (max-width: 1160px) {

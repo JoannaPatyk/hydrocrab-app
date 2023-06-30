@@ -3,6 +3,8 @@ import BigCup from '../components/BigCup';
 import Drop from '../components/Drop';
 import { useAppStateContext } from '../context/AppStateContext';
 import Wrapper from '../assets/wrappers/Dashboard';
+import background from '../assets/images/water.png';
+import background2 from '../assets/images/water-2.png';
 
 function Dashboard() {
     const { appState, setAppState } = useAppStateContext();
@@ -56,6 +58,8 @@ function Dashboard() {
                             </button>
                         </div>
                     </div>
+                    <img className="image bg-image-1" src={background} alt="water" />
+                    <img className="image bg-image-2" src={background2} alt="water" />
                 </div>
             </div>
         </Wrapper>
