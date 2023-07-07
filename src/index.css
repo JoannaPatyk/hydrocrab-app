@@ -45,6 +45,7 @@ body {
     background-color: transparent;
     border: 2px solid #66a1fb;
     transition: 0.4s linear;
+    animation: dropMove 3s infinite;
     cursor: pointer;
 }
 
@@ -112,7 +113,7 @@ body {
     }
 
     50% {
-        transform: scale(0.95);
+        transform: scale(0.98);
     }
 
     100% {

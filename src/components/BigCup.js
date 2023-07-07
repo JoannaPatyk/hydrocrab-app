@@ -5,7 +5,9 @@ import { BiCrown } from 'react-icons/bi';
 
 function BigCup() {
     const { appState } = useAppStateContext();
-    const crownClassName = appState.drunkWaterHeight >= 350 ? 'crown show' : 'crown';
+    const { drunkWaterHeight } = appState;
+
+    const crownClassName = drunkWaterHeight >= 350 ? 'crown show' : 'crown';
 
     return (
         <Wrapper>
@@ -15,7 +17,7 @@ function BigCup() {
                     <div
                         className="water"
                         style={{
-                            height: `${appState.drunkWaterHeight < 350 ? appState.drunkWaterHeight : 350}px`,
+                            height: `${drunkWaterHeight < 350 ? drunkWaterHeight : 350}px`,
                             backgroundColor: '#66a1fb'
                         }}
                     ></div>

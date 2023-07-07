@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import FormSelect from '../components/FormSelect';
 import FormInput from '../components/FormInput';
@@ -6,64 +6,60 @@ import { AiOutlineLeft } from 'react-icons/ai';
 import { useAppStateContext } from '../context/AppStateContext';
 import genderOptions from '../utils/gender';
 import activityOptions from '../utils/activity';
-import additionalAmount from '../utils/additionalAmount';
+import additionalWater from '../utils/additionalAmount';
 import Wrapper from '../assets/wrappers/Settings';
 import background from '../assets/images/water.png';
 import background2 from '../assets/images/water-2.png';
 
 function Settings() {
     const { appState, setAppState } = useAppStateContext();
+    const { name, weight, gender, activity, additionalAmount, literAmount } = appState;
 
-    const handleLiterAmountChange = () => {
-        let baseAmount = appState.weight * 30;
+    const handleLiterAmountChange = useCallback(() => {
+        let baseAmount = weight * 30;
 
-        if (appState.gender === 'kobieta') {
+        if (gender === 'kobieta') {
             baseAmount += 200;
-        } else if (appState.gender === 'mężczyzna') {
+        } else if (gender === 'mężczyzna') {
             baseAmount += 400;
         }
 
-        if (appState.activity === 'mała') {
+        if (activity === 'mała') {
             baseAmount += 200;
-        } else if (appState.activity === 'średnia') {
+        } else if (activity === 'średnia') {
             baseAmount += 400;
-        } else if (appState.activity === 'duża') {
+        } else if (activity === 'duża') {
             baseAmount += 800;
         }
 
-        baseAmount = baseAmount + parseInt(appState.additionalAmount);
+        baseAmount = baseAmount + parseInt(additionalAmount);
 
         setAppState({ ...appState, literAmount: baseAmount });
-    };
-
-    const handleNameChange = (event) => {
-        const value = event.target.value;
-        setAppState({ ...appState, name: value });
-    };
-
-    const handleWeightChange = (event) => {
-        const value = event.target.value;
-        setAppState({ ...appState, weight: value });
-    };
+        // eslint-disable-next-line
+    }, [weight, gender, activity, additionalAmount, setAppState]);
 
     useEffect(() => {
         handleLiterAmountChange();
-        // eslint-disable-next-line
-    }, [appState.weight, appState.gender, appState.activity, appState.additionalAmount]);
+    }, [handleLiterAmountChange]);
+
+    const handleNameChange = (event) => {
+        setAppState({ ...appState, name: event.target.value });
+    };
+
+    const handleWeightChange = (event) => {
+        setAppState({ ...appState, weight: event.target.value });
+    };
 
     const handleGender = (selected) => {
-        const value = selected.value;
-        setAppState({ ...appState, gender: value });
+        setAppState({ ...appState, gender: selected.value });
     };
 
     const handleActivity = (selected) => {
-        const value = selected.value;
-        setAppState({ ...appState, activity: value });
+        setAppState({ ...appState, activity: selected.value });
     };
 
     const handleAdditional = (selected) => {
-        const value = selected.value;
-        setAppState({ ...appState, additionalAmount: value });
+        setAppState({ ...appState, additionalAmount: selected.value });
     };
 
     return (
@@ -75,24 +71,19 @@ function Settings() {
                 <div className="choice-container">
                     <div className="question">
                         <h3>Podaj swoje imię:</h3>
-                        <FormInput id="nameInput" value={appState.name} type="text" onChange={handleNameChange} />
+                        <FormInput id="nameInput" value={name} type="text" onChange={handleNameChange} />
                     </div>
                     <h3>Oblicz ile wody powinieneś/aś wypić?</h3>
                     <div className="weight">
                         <h3>Podaj swoją wagę:</h3>
-                        <FormInput
-                            id="weightInput"
-                            value={appState.weight}
-                            type="number"
-                            onChange={handleWeightChange}
-                        />
+                        <FormInput id="weightInput" value={weight} type="number" onChange={handleWeightChange} />
                         <h3>kg</h3>
                     </div>
                     <div className="questions-container">
                         <div className="question">
                             <FormSelect
                                 options={genderOptions}
-                                value={{ value: appState.gender, label: appState.gender }}
+                                value={{ value: gender, label: gender }}
                                 onChange={handleGender}
                             />
                             <h3>- podaj swoją płeć</h3>
@@ -100,15 +91,15 @@ function Settings() {
                         <div className="question">
                             <FormSelect
                                 options={activityOptions}
-                                value={{ value: appState.activity, label: appState.activity }}
+                                value={{ value: activity, label: activity }}
                                 onChange={handleActivity}
                             />
                             <h3>- podaj poziom aktywności</h3>
                         </div>
                         <div className="question">
                             <FormSelect
-                                options={additionalAmount}
-                                value={{ value: appState.additionalAmount, label: appState.additionalAmount }}
+                                options={additionalWater}
+                                value={{ value: additionalAmount, label: additionalAmount }}
                                 onChange={handleAdditional}
                             />
                             <h3>- dodać więcej ml wody?</h3>
@@ -118,7 +109,7 @@ function Settings() {
                     <div className="answer">
                         <FormInput
                             id="literInput"
-                            value={appState.literAmount}
+                            value={literAmount}
                             type="number"
                             disabled
                             onChange={handleLiterAmountChange}

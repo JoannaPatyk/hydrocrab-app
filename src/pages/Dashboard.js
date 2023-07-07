@@ -8,22 +8,23 @@ import background2 from '../assets/images/water-2.png';
 
 function Dashboard() {
     const { appState, setAppState } = useAppStateContext();
+    const { drunkAmount, literAmount } = appState;
 
     useEffect(() => {
-        setAppState({ ...appState, drunkWaterHeight: (350 * appState.drunkAmount) / appState.literAmount });
+        setAppState({ ...appState, drunkWaterHeight: (350 * drunkAmount) / literAmount });
         // eslint-disable-next-line
-    }, [appState.drunkAmount]);
+    }, [drunkAmount, literAmount]);
 
     const handleDrop = () => {
-        setAppState({ ...appState, drunkAmount: appState.drunkAmount + 250 });
+        setAppState({ ...appState, drunkAmount: drunkAmount + 250 });
     };
 
     const handlMediumCup = () => {
-        setAppState({ ...appState, drunkAmount: appState.drunkAmount + 500 });
+        setAppState({ ...appState, drunkAmount: drunkAmount + 500 });
     };
 
     const handleBigCup = () => {
-        setAppState({ ...appState, drunkAmount: appState.drunkAmount + 1000 });
+        setAppState({ ...appState, drunkAmount: drunkAmount + 1000 });
     };
 
     const handleCleanUp = () => {
@@ -35,9 +36,9 @@ function Dashboard() {
             <div className="dashboard-container">
                 <div className="main-container">
                     <div className="info-panel">
-                        <h2 className="target">Cel: {appState.literAmount} ml</h2>
-                        <h2 className="drunk">Wypito: {appState.drunkAmount} ml</h2>
-                        <h2 className="balance">Bilans: {-(appState.literAmount - appState.drunkAmount)} ml</h2>
+                        <h2 className="target">Cel: {literAmount} ml</h2>
+                        <h2 className="drunk">Wypito: {drunkAmount} ml</h2>
+                        <h2 className="balance">Bilans: {-(literAmount - drunkAmount)} ml</h2>
                     </div>
                     <div className="cup-container">
                         <div className="small-cup-container">
@@ -52,7 +53,7 @@ function Dashboard() {
                             </button>
                         </div>
                         <div className="big-cup-container">
-                            <BigCup drunkAmount={appState.drunkAmount} />
+                            <BigCup drunkAmount={drunkAmount} />
                             <button className="btn" onClick={handleCleanUp}>
                                 wyczyść
                             </button>

@@ -32,8 +32,14 @@ const Wrapper = styled.div`
         font-size: 8rem;
         text-align: center;
 
-        span {
+        .changes {
             color: #66a1fb;
+        }
+
+        .water {
+            padding: 0 2rem;
+            color: #ffffff;
+            background-color: #66a1fb;
         }
     }
 

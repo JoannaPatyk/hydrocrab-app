@@ -15,7 +15,8 @@ function Landing() {
                 <img className="image bg-image-2" src={background2} alt="water" />
                 <div className="main">
                     <h1>
-                        Water <br /> <span>changes</span> <br /> everything!
+                        <span className="water">Water</span> <br /> <span className="changes">changes</span> <br />{' '}
+                        everything!
                     </h1>
                     <div className="icon-container">
                         <div className="line"></div>

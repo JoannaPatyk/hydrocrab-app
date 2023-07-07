@@ -88,7 +88,7 @@ const Wrapper = styled.div`
         top: -35%;
         right: -5%;
         z-index: -1;
-        opacity: 0.7;
+        opacity: 0.4;
     }
 
     .bg-image-2 {
@@ -97,7 +97,7 @@ const Wrapper = styled.div`
         top: -25%;
         left: -5%;
         z-index: -1;
-        opacity: 0.7;
+        opacity: 0.4;
     }
 
     @media (max-width: 1070px) {

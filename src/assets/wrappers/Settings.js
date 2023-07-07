@@ -82,7 +82,6 @@ const Wrapper = styled.div`
         border-bottom: 1px solid #66a1fb;
         font-size: 1.5rem;
         font-family: inherit;
-
         text-align: center;
         color: inherit;
         background-color: transparent;
@@ -125,8 +124,7 @@ const Wrapper = styled.div`
     .image {
         position: absolute;
         z-index: -1;
-
-        opacity: 0.7;
+        opacity: 0.4;
     }
 
     .bg-image-1 {
