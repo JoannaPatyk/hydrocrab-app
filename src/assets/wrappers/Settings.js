@@ -6,6 +6,8 @@ const Wrapper = styled.div`
         margin: 0 auto;
         position: relative;
         overflow: hidden;
+        display: grid;
+        grid-template-columns: 10fr 1fr;
     }
 
     h3 {
@@ -21,7 +23,7 @@ const Wrapper = styled.div`
 
     .choice-container {
         min-height: 76vh;
-        width: 30vw;
+        width: 50%;
         margin: -1rem auto 0;
         display: flex;
         flex-direction: column;
@@ -123,21 +125,11 @@ const Wrapper = styled.div`
 
     .image {
         position: absolute;
+        height: 90%;
+        top: 0;
+        right: 28%;
         z-index: -1;
-        opacity: 0.4;
-    }
-
-    .bg-image-1 {
-        height: 110%;
-        top: -10%;
-        left: 8%;
-    }
-
-    .bg-image-2 {
-        height: 120%;
-        top: -5%;
-        right: 10%;
-        transform: rotate(120deg);
+        opacity: 0.8;
     }
 
     @media (max-width: 1300px) {

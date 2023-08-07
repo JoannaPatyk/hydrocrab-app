@@ -4,7 +4,7 @@ const Wrapper = styled.div`
     .description-container {
         min-height: 70vh;
         width: 60%;
-        margin: 0 auto;
+        margin: 1rem auto;
         padding: 2rem 4rem;
         display: flex;
         align-items: center;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     }
 
     h1 {
-        padding: 1rem 0;
+        padding: 2rem 0;
         text-align: center;
         width: 100%;
         font-size: 4rem;

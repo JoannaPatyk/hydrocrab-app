@@ -8,8 +8,7 @@ import genderOptions from '../utils/gender';
 import activityOptions from '../utils/activity';
 import additionalWater from '../utils/additionalAmount';
 import Wrapper from '../assets/wrappers/Settings';
-import background from '../assets/images/water.png';
-import background2 from '../assets/images/water-2.png';
+import background from '../assets/images/glass.png';
 
 function Settings() {
     const { appState, setAppState } = useAppStateContext();
@@ -117,8 +116,7 @@ function Settings() {
                         <h3>ml</h3>
                     </div>
                 </div>
-                <img className="image bg-image-1" src={background} alt="water" />
-                <img className="image bg-image-2" src={background2} alt="water" />
+                <img className="image" src={background} alt="water" />
             </div>
         </Wrapper>
     );
